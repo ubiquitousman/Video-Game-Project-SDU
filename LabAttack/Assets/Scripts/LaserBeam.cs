@@ -24,6 +24,16 @@ public class LaserBeam : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) //if the laserbeam interacts (collides) with anything else, just make it vanish
     {
+        if(other.tag == "Player1")
+        {
+            FindObjectOfType<GameManager>().HurtP1();
+        }
+
+        if (other.tag == "Player2")
+        {
+            FindObjectOfType<GameManager>().HurtP2();
+        }
+
         Instantiate(laserBeamEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
