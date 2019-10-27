@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] p1flasks;
     public GameObject[] p2flasks;
 
+    public AudioSource hurtSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
                 p1flasks[i].SetActive(false);
             }
         }
+        hurtSound.Play(); //when player 1 gets hit, the hurt sound effect will play
     }
 
     public void HurtP2()
@@ -69,5 +72,6 @@ public class GameManager : MonoBehaviour
                 p2flasks[i].SetActive(false);
             }
         }
+        hurtSound.Play(); //when player 2 gets hit, the hurt sound effect will play
     }
 }

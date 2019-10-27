@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public GameObject laserBeam;
     public Transform shootPoint; //where the point (in space) of shooting the laserbeam is located
 
+    public AudioSource shootSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
             GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
             laserClone.transform.localScale = transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
             anim.SetTrigger("Shoot");
+            shootSound.Play();
         }
 
         if(rb.velocity.x <0) //if we're moving to the left [...]
