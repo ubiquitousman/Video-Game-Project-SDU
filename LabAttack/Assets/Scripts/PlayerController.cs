@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim; //making a reference to the animator which is attached to the player
 
+    public GameObject laserBeam;
+    public Transform shootPoint; //where the point (in space) of shooting the laserbeam is located
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,13 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(jump) && isGrounded) //if the button is just pressed (and not held down), then force will be added, so the player jumps into the air if the player is on the ground when pressed
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if(Input.GetKeyDown(shoot))
+        {
+            GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
+            laserClone.transform.localScale = transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
+            anim.SetTrigger("Shoot");
         }
 
         if(rb.velocity.x <0) //if we're moving to the left [...]
