@@ -13,7 +13,8 @@ public class TextController1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        thePlayer = FindObjectOfType<PlayerController>(); // Vi finder spiller komponenten for at kunne bruge den i vores kode
+        if(tag == "Player1")
+            FindObjectOfType<PlayerController>(); // Vi finder spiller komponenten for at kunne bruge den i vores kode
         lastPlayerPosition = thePlayer.transform.position; // Spillerens position tjekkes ved start
     }
 
