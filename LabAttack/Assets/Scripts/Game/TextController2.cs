@@ -23,7 +23,7 @@ public class TextController2 : MonoBehaviour
     {
         distanceToMoveX = thePlayer.transform.position.x - lastPlayerPosition.x; // Distancen på x-aksen sættes til differencen mellem spillerens nuværende position (den har lige flyttet sig grundet PlayerController-scriptet) og den sidste position (før spilleren blev flyttet)
         distanceToMoveY = thePlayer.transform.position.y - lastPlayerPosition.y; // Distancen på y-aksen sættes til differencen mellem spillerens nuværende position (den har lige flyttet sig grundet PlayerController-scriptet) og den sidste position (før spilleren blev flyttet)
-        transform.position = new Vector3(transform.position.x + distanceToMoveX, transform.position.y + distanceToMoveY, transform.position.z); // Kameraet flyttes den samme mængde som spilleren er blevet
+        transform.position = new Vector3(transform.position.x + distanceToMoveX, transform.position.y + distanceToMoveY, transform.position.z); // Teksten flyttes den samme mængde som spilleren er blevet
 
         lastPlayerPosition = thePlayer.transform.position; // Spillerens nye position tjekkes
 
