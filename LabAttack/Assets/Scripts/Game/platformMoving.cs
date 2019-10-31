@@ -17,7 +17,7 @@ public class platformMoving : MonoBehaviour
     }
 
     // Update is called once per frame
-    void fixedUpdate()
+    void FixedUpdate()
     {
         if(transform.position == pos1.position)
         {

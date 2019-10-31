@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        
+        GameIsPaused = false;
     }
 
 
@@ -36,6 +36,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        GameObject Player1 = GameObject.Find("Player1");
+        Player1.GetComponent<PlayerController>().enabled = true;
+
+        GameObject Player2 = GameObject.Find("Player2");
+        Player2.GetComponent<PlayerController>().enabled = true;
     }
 
     void Pause ()
@@ -43,17 +49,38 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        GameObject Player1 = GameObject.Find("Player1");
+        Player1.GetComponent<PlayerController>().enabled = false;
+
+        GameObject Player2 = GameObject.Find("Player2");
+        Player2.GetComponent<PlayerController>().enabled = false;
     }
 
-    public void LoadMenu()
+    public void GoToMainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
     {
         Debug.Log("Quitting Game");
         Application.Quit();
+    }
+
+    public void GoToSettings()
+    {
+
+    }
+
+    public void RestartGame()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SceneManager.LoadScene("VersusLevel");
+        
     }
 
 }
