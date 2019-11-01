@@ -17,11 +17,7 @@ public class platformMoving : MonoBehaviour
     }
 
     // Update is called once per frame
-<<<<<<< HEAD
     void FixedUpdate()
-=======
-    void fixedUpdate()
->>>>>>> parent of ff295f2... Hoverplatform
     {
         if(transform.position == pos1.position)
         {
