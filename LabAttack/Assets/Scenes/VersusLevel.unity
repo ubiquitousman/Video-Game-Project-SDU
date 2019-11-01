@@ -1038,7 +1038,11 @@ PrefabInstance:
     - target: {fileID: 7656848789063292860, guid: 8ed76be7c6d7ce74f9815ce1051bf766,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: 22.946148
+=======
+      value: 31.106777
+>>>>>>> parent of ff295f2... Hoverplatform
       objectReference: {fileID: 0}
     - target: {fileID: 7656848789063292860, guid: 8ed76be7c6d7ce74f9815ce1051bf766,
         type: 3}
@@ -1509,7 +1513,11 @@ PrefabInstance:
     - target: {fileID: 7656848789063292860, guid: 8ed76be7c6d7ce74f9815ce1051bf766,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: -9.075823
+=======
+      value: -1.96
+>>>>>>> parent of ff295f2... Hoverplatform
       objectReference: {fileID: 0}
     - target: {fileID: 7656848789063292860, guid: 8ed76be7c6d7ce74f9815ce1051bf766,
         type: 3}
@@ -1824,11 +1832,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66b3d7793ff6145418c859d89a3a851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   pos1: {fileID: 811361672}
   pos2: {fileID: 1950843020}
   speed: 3
   startPos: {fileID: 1950843020}
 --- !u!1 &751844870
+=======
+  speed: 5
+  childTransform: {fileID: 811361672}
+  transformB: {fileID: 1950843020}
+--- !u!1 &811361671
+>>>>>>> parent of ff295f2... Hoverplatform
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5484,7 +5499,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos1: {fileID: 1475420156}
   pos2: {fileID: 244480215}
+<<<<<<< HEAD
   speed: 3
+=======
+  speed: 10
+>>>>>>> parent of ff295f2... Hoverplatform
   startPos: {fileID: 1475420156}
 --- !u!1 &1701863526
 GameObject:
@@ -6395,8 +6414,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950843019}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 22.94615, y: 7.3982544, z: -0.033203125}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: 7, z: 0}
+>>>>>>> parent of ff295f2... Hoverplatform
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1674897169}
