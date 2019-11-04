@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject p1Wins;
     public GameObject p2Wins;
-    public GameObject Tie;
+    public GameObject SuddenDeath;
 
     public bool p1won = false;
     public bool p2won = false;
-    public bool tie = false;
+    public bool suddenDeath = false;
 
     public GameObject[] p1flasks;
     public GameObject[] p2flasks;
@@ -35,32 +36,52 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        if (tie) // if it's a tie
+        if (suddenDeath) // if it's a tie at TimeIsUp
         {
-            player1.SetActive(false); //we want to deactivate the player
-            player2.SetActive(false); //we want to deactivate the player
+            P1Life = 1;
 
-            Tie.SetActive(true); // the game over screen will show it's a tie
+            for (int i = 0; i < p1flasks.Length; i++)
+            {
+                if (P1Life > i)
+                {
+                    p1flasks[i].SetActive(true);
+                }
+                else
+                {
+                    p1flasks[i].SetActive(false);
+                }
+            }
 
-            explosionSound.Play();
-            tie = false;
+            P2Life = 1;
+
+            for (int i = 0; i < p2flasks.Length; i++)
+            {
+                if (P2Life > i)
+                {
+                    p2flasks[i].SetActive(true);
+                }
+                else
+                {
+                    p2flasks[i].SetActive(false);
+                }
+            }
+
+
+            SuddenDeath.SetActive(true); // the screen will show it's Sudden Death
+
+           
+            suddenDeath = false; // this variable is set to false, so the sound won't repeat itself
 
         }
 
-        if(P1Life <= 0 && !p1won && !tie) // this makes sure that only one thing happens (player 2 can't win if player 1 already did or a tie has happened)
+        if(P1Life <= 0) 
         {
-            player1.SetActive(false); //we want to deactivate the player
-            p2Wins.SetActive(true); //the game over screen will show when player 1 has no lives left
-
-            p2won = true; // Player 2 won the game
+            SceneManager.LoadScene("P2Won"); // Player 2 won the game
         }
 
-        if (P2Life <= 0 && !p2won && !tie) // this makes sure that only one thing happens (player 1 can't win if player 2 already did or a tie has happened)
+        if (P2Life <= 0) 
         {
-            player2.SetActive(false); //we want to deactivate the player
-            p1Wins.SetActive(true); //the game over screen will show when player 2 has no lives left
-
-            p1won = true; // Player 1 won the game
+            SceneManager.LoadScene("P1Won"); // Player 1 won the game
         }
     }
 
@@ -144,6 +165,13 @@ public class GameManager : MonoBehaviour
 
     public void TimeUp ()
     {
-        tie = true;
+        explosionSound.Play();
+        if (P2Life == P1Life)
+        { suddenDeath = true; }
+
+        else if (P1Life > P2Life)
+        { SceneManager.LoadScene("P1Won"); }
+        else if (P2Life>P1Life)
+        { SceneManager.LoadScene("P2Won"); }
     }
 }
