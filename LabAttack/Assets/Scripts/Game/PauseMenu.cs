@@ -6,26 +6,26 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
+    public static bool GameIsPaused = false; // is the game paused?
+    public GameObject pauseMenuUI; // We can assign the UI for PauseMenu to this script because this is public
 
 
     void Start()
     {
-        GameIsPaused = false;
+        GameIsPaused = false; // the game is not paused in the beginning of the game
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) // if we press the "Escape" key
         {
-            if (GameIsPaused)
+            if (GameIsPaused) // if the games is paused
             {
-                Resume();
-            } else
+                Resume(); // resume the game --> execute the void Resume() 
+            } else  // if the game is not paused
             {
-                Pause();
+                Pause(); // put the game on pause --> execute the void Pause() 
             }
         }
     }
@@ -33,40 +33,41 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume ()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+        pauseMenuUI.SetActive(false); // disable the UI for PauseMenu
+        Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
+        GameIsPaused = false; // the game is not paused now
 
-        GameObject Player1 = GameObject.Find("Player1");
-        Player1.GetComponent<PlayerController>().enabled = true;
+        GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+        Player1.GetComponent<PlayerController>().enabled = true; // player 1 can give inputs to the playerController again
 
-        GameObject Player2 = GameObject.Find("Player2");
-        Player2.GetComponent<PlayerController>().enabled = true;
+        GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+        Player2.GetComponent<PlayerController>().enabled = true; // player 2 can give inputs to the playerController again
     }
 
     void Pause ()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        pauseMenuUI.SetActive(true); // enable the UI for PauseMenu
+        Time.timeScale = 0f; // things won't move (0 means 0% movementspeed)
+        GameIsPaused = true; // the game is now paused
 
-        GameObject Player1 = GameObject.Find("Player1");
-        Player1.GetComponent<PlayerController>().enabled = false;
+        GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+        Player1.GetComponent<PlayerController>().enabled = false; // player 1 can't give inputs to the playerController
 
-        GameObject Player2 = GameObject.Find("Player2");
-        Player2.GetComponent<PlayerController>().enabled = false;
+        GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+        Player2.GetComponent<PlayerController>().enabled = false; // player 2 can't give inputs to the playerController
     }
 
     public void GoToMainMenu()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
+        SceneManager.LoadScene("MainMenu"); // load the MainMenu scene
+      
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quitting Game");
-        Application.Quit();
+        Debug.Log("Quitting Game"); // show this in console
+        Application.Quit(); // quit the game
     }
 
     public void GoToSettings()
@@ -76,10 +77,10 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        SceneManager.LoadScene("VersusLevel");
+        pauseMenuUI.SetActive(false); // disable the UI for PauseMenu
+        Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
+        GameIsPaused = false;  // the game is not paused now
+        SceneManager.LoadScene("VersusLevel"); // load the VersusLevel scene
         
     }
 

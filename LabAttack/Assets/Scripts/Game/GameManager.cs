@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] p2flasks;
 
     public AudioSource hurtSound;
+    public AudioSource fallSound;
+    public AudioSource explosionSound;
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +42,8 @@ public class GameManager : MonoBehaviour
 
             Tie.SetActive(true); // the game over screen will show it's a tie
 
-         /*
-             
-         We want an explosion sound effect here!
-         
-         
-         */
-
-
+            explosionSound.Play();
+            tie = false;
 
         }
 
@@ -105,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     public void FallP1() // player 1 falls sown (see FallTrigger script)
     {
+        fallSound.Play(); //when player 1 falls down, the fallSound will play
+
         P1Life = 0;
 
         for (int i = 0; i < p1flasks.Length; i++)
@@ -119,11 +117,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        hurtSound.Play(); //when player 2 gets hit, the hurt sound effect will play
+        hurtSound.Play(); //when player 1 falls down, the hurtSound will also play
+
     }
 
     public void FallP2() // player 2 falls sown (see FallTrigger script)
     {
+        fallSound.Play(); //when player 2 falls down, the fallSound will play
+        
         P2Life = 0;
 
         for (int i = 0; i < p2flasks.Length; i++)
@@ -137,7 +138,8 @@ public class GameManager : MonoBehaviour
                 p2flasks[i].SetActive(false);
             }
         }
-        hurtSound.Play(); //when player 2 gets hit, the hurt sound effect will play
+        
+        hurtSound.Play(); //when player 2 falls down, the hurtSound will also play
     }
 
     public void TimeUp ()

@@ -6,15 +6,15 @@ public class CameraController : MonoBehaviour
 {
    public float timeToLerp;
    public float timeLerped = 0.0f;
-   Vector3 mainMenuPosition;
-   Vector3 teamPosition;
-   Vector3 settingsPosition;
-   Vector3 soundSettingsPosition;
-   Vector3 graphicSettingsPosition;
-   Vector3 playSettingsPosition;
+  Vector3 mainMenuPosition;
+  Vector3 teamPosition;
+  Vector3 settingsPosition;
+  Vector3 soundSettingsPosition;
+  Vector3 graphicSettingsPosition;
+  Vector3 playSettingsPosition;
 
 
-    private Vector3 newPosition;
+    public Vector3 newPosition;
     void Awake()
     {
         newPosition = transform.position;    
@@ -84,9 +84,12 @@ public class CameraController : MonoBehaviour
         timeToLerp = 10f;
     }
 
+    
+
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, newPosition, timeLerped / timeToLerp); // Kameraet flyttes til den nyligt satte lokation
     }
 
+   
 }
