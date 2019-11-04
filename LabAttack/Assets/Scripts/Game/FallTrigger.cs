@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FallTrigger : MonoBehaviour
 {
-    public float power = 0.05f;
-    public float duration = 0.5f;
+    public float power = 0.1f;
+    public float duration = 5f;
     public Transform camera;
-    public float SlowDownAmount = 1.0f;
+    public float SlowDownAmount = 20f;
     public bool shouldShake = false;
 
     Vector3 startPosition;
@@ -39,6 +39,22 @@ public class FallTrigger : MonoBehaviour
                 camera.localPosition = startPosition;
             }
         }
+
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other) //if the players touch the collider a function from the GameManager is called
+    {
+        if (other.tag == "Player1")
+        {
+            FindObjectOfType<GameManager>().FallP1();
+        }
+
+        if (other.tag == "Player2")
+        {
+            FindObjectOfType<GameManager>().FallP2();
+        }
+
     }
 
 
