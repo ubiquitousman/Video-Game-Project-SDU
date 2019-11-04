@@ -4,6 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: GFX_LAB-52_0
     21300002: GFX_LAB-52_1
+    21300004: GFX_LAB-52_2
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -114,13 +115,33 @@ TextureImporter:
         width: 690
         height: 289
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 88a2bea957317be499fa3b95bf42aa17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GFX_LAB-52_2
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 739
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2beaf075a8d2d1343acd7be003ec6fc5
       vertices: []
       indices: 
       edges: []

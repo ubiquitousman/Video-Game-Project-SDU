@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public Transform shootPoint; //where the point (in space) of shooting the laserbeam is located
 
     public AudioSource shootSound;
+    public AudioSource jumpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(jump) && isGrounded) //if the button is just pressed (and not held down), then force will be added, so the player jumps into the air if the player is on the ground when pressed
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpSound.Play();
         }
 
         if(Input.GetKeyDown(shoot))

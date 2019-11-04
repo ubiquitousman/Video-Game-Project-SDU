@@ -40,32 +40,11 @@ public class GameManager : MonoBehaviour
         {
             P1Life = 1;
 
-            for (int i = 0; i < p1flasks.Length; i++)
-            {
-                if (P1Life > i)
-                {
-                    p1flasks[i].SetActive(true);
-                }
-                else
-                {
-                    p1flasks[i].SetActive(false);
-                }
-            }
+            P1Flasks(); // execute void P1Flasks()
 
             P2Life = 1;
 
-            for (int i = 0; i < p2flasks.Length; i++)
-            {
-                if (P2Life > i)
-                {
-                    p2flasks[i].SetActive(true);
-                }
-                else
-                {
-                    p2flasks[i].SetActive(false);
-                }
-            }
-
+            P2Flasks(); // execute void P2Flasks()
 
             SuddenDeath.SetActive(true); // the screen will show it's Sudden Death
 
@@ -89,16 +68,8 @@ public class GameManager : MonoBehaviour
     {
         P1Life -= 1;
 
-        for(int i = 0; i < p1flasks.Length; i++)
-        {
-            if(P1Life > i)
-            {
-                p1flasks[i].SetActive(true);
-            } else
-            {
-                p1flasks[i].SetActive(false);
-            }
-        }
+        P1Flasks(); // execute void P1Flasks()
+
         hurtSound.Play(); //when player 1 gets hit, the hurt sound effect will play
     }
 
@@ -106,17 +77,8 @@ public class GameManager : MonoBehaviour
     {
         P2Life -= 1;
 
-        for (int i = 0; i < p2flasks.Length; i++)
-        {
-            if (P2Life > i)
-            {
-                p2flasks[i].SetActive(true);
-            }
-            else
-            {
-                p2flasks[i].SetActive(false);
-            }
-        }
+        P2Flasks(); // execute void P2Flasks()
+
         hurtSound.Play(); //when player 2 gets hit, the hurt sound effect will play
     }
 
@@ -126,17 +88,7 @@ public class GameManager : MonoBehaviour
 
         P1Life = 0;
 
-        for (int i = 0; i < p1flasks.Length; i++)
-        {
-            if (P1Life > i)
-            {
-                p1flasks[i].SetActive(true);
-            }
-            else
-            {
-                p1flasks[i].SetActive(false);
-            }
-        }
+        P1Flasks(); // execute void P1Flasks()
 
         hurtSound.Play(); //when player 1 falls down, the hurtSound will also play
 
@@ -148,17 +100,7 @@ public class GameManager : MonoBehaviour
         
         P2Life = 0;
 
-        for (int i = 0; i < p2flasks.Length; i++)
-        {
-            if (P2Life > i)
-            {
-                p2flasks[i].SetActive(true);
-            }
-            else
-            {
-                p2flasks[i].SetActive(false);
-            }
-        }
+        P2Flasks(); // execute void P2Flasks()
         
         hurtSound.Play(); //when player 2 falls down, the hurtSound will also play
     }
@@ -174,4 +116,44 @@ public class GameManager : MonoBehaviour
         else if (P2Life>P1Life)
         { SceneManager.LoadScene("P2Won"); }
     }
+
+
+
+    public void P1Flasks ()
+    {
+        for (int i = 0; i < p1flasks.Length; i++)
+        {
+            if (P1Life > i)
+            {
+                p1flasks[i].SetActive(true);
+            }
+            else
+            {
+                p1flasks[i].SetActive(false);
+            }
+        }
+    }
+
+    public void P2Flasks()
+    {
+        for (int i = 0; i < p2flasks.Length; i++)
+        {
+            if (P2Life > i)
+            {
+                p2flasks[i].SetActive(true);
+            }
+            else
+            {
+                p2flasks[i].SetActive(false);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
 }

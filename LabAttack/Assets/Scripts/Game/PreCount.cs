@@ -12,6 +12,7 @@ public class PreCount : MonoBehaviour
 
     public AudioSource preCountSound;
     public AudioSource startBoomSound;
+    public AudioSource musicTheme;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,7 @@ public class PreCount : MonoBehaviour
         if (countDownStartValue > 0)
         {
             TimeSpan spanTime = TimeSpan.FromSeconds(countDownStartValue);
-            Precount.text = "Round starts in " + spanTime.Seconds; ;
+            Precount.text = "Round starts in "  + spanTime.Seconds; ;
             preCountSound.Play();
             countDownStartValue--;
             Invoke("countDownTimer", 1.0f);
@@ -40,6 +41,7 @@ public class PreCount : MonoBehaviour
         {
             Precount.text = "GO!";
             startBoomSound.Play();
+            musicTheme.Play();
             GameObject countDown = GameObject.Find("Countdown"); // the script finds the Countdown (the one that shows the time left)
             countDown.GetComponent<TimerTimeIsUp>().enabled = true; // the script TimerTimeIsUp gets enabled
 

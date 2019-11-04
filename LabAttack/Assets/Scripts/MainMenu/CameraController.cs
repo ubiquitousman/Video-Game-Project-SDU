@@ -15,6 +15,11 @@ public class CameraController : MonoBehaviour
 
 
     public Vector3 newPosition;
+
+   
+
+   
+
     void Awake()
     {
         newPosition = transform.position;    
@@ -30,6 +35,7 @@ public class CameraController : MonoBehaviour
 
     public void Launch()
     {
+        
         mainMenuPosition = new Vector3(0, 0, -10);
         newPosition = mainMenuPosition;
         timeLerped = 0.0f;
