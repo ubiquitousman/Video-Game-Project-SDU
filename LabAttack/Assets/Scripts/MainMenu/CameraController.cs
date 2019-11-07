@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-   public float timeToLerp;
-   public float timeLerped = 0.0f;
+    public float startDelay = 0;
+  public float timeToLerp = 0.0f;
+  public float timeLerped = 0.0f;
   Vector3 mainMenuPosition;
   Vector3 teamPosition;
   Vector3 settingsPosition;
   Vector3 soundSettingsPosition;
   Vector3 graphicSettingsPosition;
   Vector3 playSettingsPosition;
+    Vector3 moveHere;
 
 
     public Vector3 newPosition;
@@ -20,10 +22,14 @@ public class CameraController : MonoBehaviour
 
    
 
-    void Awake()
+    void Start()
     {
-        newPosition = transform.position;    
+        newPosition = new Vector3(0, 19, -10);
+
+        
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -91,10 +97,22 @@ public class CameraController : MonoBehaviour
     }
 
     
-
+    
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, newPosition, timeLerped / timeToLerp); // Kameraet flyttes til den nyligt satte lokation
+        // startDelay is 0 before running this code
+        if (startDelay < 3) 
+        {
+            startDelay += 1;
+        }
+        // We can skip the first update since the startDelay is == 1 which is not >= 2 (we had some trouble if this was executed in the first FixedUpdate)
+        if (startDelay >= 2)
+        {
+            moveHere = Vector3.Lerp(transform.position, newPosition, timeLerped / timeToLerp); // Kameraet flyttes til den nyligt satte lokation
+
+            transform.position = moveHere;
+        }
+
     }
 
    
