@@ -100,6 +100,7 @@ public class CameraController : MonoBehaviour
     
     void FixedUpdate()
     {
+       
         // startDelay is 0 before running this code
         if (startDelay < 3) 
         {
@@ -108,6 +109,7 @@ public class CameraController : MonoBehaviour
         // We can skip the first update since the startDelay is == 1 which is not >= 2 (we had some trouble if this was executed in the first FixedUpdate)
         if (startDelay >= 2)
         {
+        
             moveHere = Vector3.Lerp(transform.position, newPosition, timeLerped / timeToLerp); // Kameraet flyttes til den nyligt satte lokation
 
             transform.position = moveHere;
