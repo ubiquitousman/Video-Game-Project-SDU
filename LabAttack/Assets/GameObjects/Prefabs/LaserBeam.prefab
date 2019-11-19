@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd04c4387ae895841a9f10441c1d32a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSpeed: 8
+  maxBeams: 5
+  laserSpeed: 14
   laserBeamEffect: {fileID: 701900591986390391, guid: cc0e4d7b836353846acfb14a32ff076e,
     type: 3}
 --- !u!50 &7630004600048059039
