@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextController1 : MonoBehaviour
 {
-    public PlayerController thePlayer; // Reference for spilleren
+    public P1Controller thePlayer; // Reference for spilleren
 
     private Vector3 lastPlayerPosition; // Den løbende position for spilleren, før teksten bliver flyttet
     private float distanceToMoveX; // Hvor meget skal teksten flyttes af x-aksen
@@ -14,7 +14,7 @@ public class TextController1 : MonoBehaviour
     void Start()
     {
         if(tag == "Player1")
-            FindObjectOfType<PlayerController>(); // Vi finder spiller komponenten for at kunne bruge den i vores kode
+            FindObjectOfType<P1Controller>(); // Vi finder spiller komponenten for at kunne bruge den i vores kode
         lastPlayerPosition = thePlayer.transform.position; // Spillerens position tjekkes ved start
     }
 

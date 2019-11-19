@@ -19,10 +19,10 @@ public class PreCount : MonoBehaviour
     {
         
         GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
-        Player1.GetComponent<PlayerController>().enabled = false; // player 1 can't give inputs to the playerController
+        Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
 
         GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
-        Player2.GetComponent<PlayerController>().enabled = false; // player 2 can't give inputs to the playerController
+        Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
 
         countDownTimer();
     }
@@ -46,10 +46,10 @@ public class PreCount : MonoBehaviour
             countDown.GetComponent<TimerTimeIsUp>().enabled = true; // the script TimerTimeIsUp gets enabled
 
             GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
-            Player1.GetComponent<PlayerController>().enabled = true; // player 1 can give inputs to the playerController again
+            Player1.GetComponent<P1Controller>().enabled = true; // player 1 can give inputs to the playerController again
 
             GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
-            Player2.GetComponent<PlayerController>().enabled = true; // player 2 can give inputs to the playerController again
+            Player2.GetComponent<P2Controller>().enabled = true; // player 2 can give inputs to the playerController again
         }
     }
 }

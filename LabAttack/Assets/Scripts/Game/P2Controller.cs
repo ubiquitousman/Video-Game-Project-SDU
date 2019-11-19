@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class P2Controller : MonoBehaviour
 {
     public float moveSpeed; //the speed the player is able to move with
     public float jumpForce; //how high the player jump
@@ -65,20 +65,20 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(shoot))
         {
             GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
-            laserClone.transform.localScale = transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
+            laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
             anim.SetTrigger("Shoot");
             shootSound.Play();
         }
 
         if(rb.velocity.x <0) //if we're moving to the left [...]
         {
-            transform.localScale = new Vector3(-1, 1, 1); // [...] it'll flip the player if we move to the left
+            transform.localScale = new Vector3(1, 1, 1); // [...] it'll flip the player if we move to the left
         }
         else if(rb.velocity.x >0) //if we're moving to the right [...]
         {
-            transform.localScale = new Vector3(1, 1, 1); // [...] it'll flip the player back to the right
+            transform.localScale = new Vector3(-1, 1, 1); // [...] it'll flip the player back to the right
         }
-
+        
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x)); //What absolute does is that if it's a minus then the value is ignored - and it's a plus value
         anim.SetBool("Grounded", isGrounded);
         //anim.SetTrigger("Shoot");

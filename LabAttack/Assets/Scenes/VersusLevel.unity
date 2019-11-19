@@ -502,6 +502,37 @@ Transform:
   m_Father: {fileID: 60346091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &48389464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48389465}
+  m_Layer: 0
+  m_Name: Collectibles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &48389465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48389464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9744953, y: -1.5569423, z: 94.99219}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 209095550}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &60346085
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +590,7 @@ MonoBehaviour:
   left: 276
   right: 275
   jump: 273
-  shoot: 256
+  shoot: 305
   groundCheckPoint: {fileID: 45026443}
   groundCheckRadius: 0.2
   whatIsGround:
@@ -1181,12 +1212,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209095547}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5491588, y: -1.22882, z: 50.789093}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5746635, y: 0.32812238, z: -44.203094}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 48389465}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230499442
 GameObject:
@@ -3720,7 +3751,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1083758371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbbcaae8939e7a1438d096091e23855c, type: 3}
+  m_Script: {fileID: 11500000, guid: 40b91fab2543cb845b30765d8bf097b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
@@ -3735,7 +3766,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   isGrounded: 0
-  laserBeam: {fileID: 7259941955810712758, guid: 127c391d4d61f3c448bb242c7f6a93bd,
+  laserBeam: {fileID: 7630004600048059032, guid: d94dd8e6d96a5bb4789d66eb5b922859,
     type: 3}
   shootPoint: {fileID: 1305305076}
   shootSound: {fileID: 1329059055}
@@ -7250,7 +7281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951127677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.92, y: 0.09, z: 0}
+  m_LocalPosition: {x: -0.953, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 60346091}
