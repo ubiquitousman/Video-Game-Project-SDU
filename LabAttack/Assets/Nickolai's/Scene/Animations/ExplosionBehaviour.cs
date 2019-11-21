@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosionBehaviour : StateMachineBehaviour
-{
+{/*
     private float explosionTime;
     private float elapsed;
 
@@ -41,4 +41,4 @@ public class ExplosionBehaviour : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
-}
+*/}
