@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!58 &58130114789462064
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,6 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBeams: 5
-  laserSpeed: 14
+  laserSpeed: 30
   laserBeamEffect: {fileID: 701900591986390391, guid: cc0e4d7b836353846acfb14a32ff076e,
     type: 3}
