@@ -14,10 +14,13 @@ public class PreCount : MonoBehaviour
     public AudioSource startBoomSound;
     public AudioSource musicTheme;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
+
         GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
         Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
 
@@ -50,6 +53,9 @@ public class PreCount : MonoBehaviour
 
             GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
             Player2.GetComponent<P2Controller>().enabled = true; // player 2 can give inputs to the playerController again
+
+
+       
         }
     }
 }

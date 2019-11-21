@@ -33,7 +33,7 @@ public class P2Controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent <Rigidbody2D>(); //when the game starts we want this script to find the rigidbody that is attached to the player
-
+        rb.isKinematic = false;
         anim = GetComponent<Animator>(); //when the game starts we want this script to find the animations stored in Animator
     }
 
@@ -83,4 +83,7 @@ public class P2Controller : MonoBehaviour
         anim.SetBool("Grounded", isGrounded);
         //anim.SetTrigger("Shoot");
     }
+   
+
+
 }

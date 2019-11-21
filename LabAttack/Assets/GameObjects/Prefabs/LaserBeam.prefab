@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBeams: 5
-  laserSpeed: 30
+  laserSpeed: 25
   laserBeamEffect: {fileID: 701900591986390391, guid: cc0e4d7b836353846acfb14a32ff076e,
     type: 3}
 --- !u!50 &7630004600048059039
