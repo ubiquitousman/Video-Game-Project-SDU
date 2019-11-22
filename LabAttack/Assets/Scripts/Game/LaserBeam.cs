@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserBeam : MonoBehaviour
 {
-    public float maxBeams = 5f;
+    
 
     public float laserSpeed; //how fast the beam is going to move
 

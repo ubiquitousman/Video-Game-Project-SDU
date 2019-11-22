@@ -84,6 +84,12 @@ public class P1Controller : MonoBehaviour
         //anim.SetTrigger("Shoot");
     }
 
-   
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Monster")
+        {
+            FindObjectOfType<GameManager>().HurtP1();
+        }
+    }
 
 }

@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    // Camera related
+    public float power = 0.1f;
+    public float duration = 5f;
+    public Transform camera;
+    public float SlowDownAmount = 20f;
+    public bool shouldShake = false;
+    Vector3 startPosition;
+    float initialDuration;
+
+
     public GameObject player1;
     public GameObject player2;
 
@@ -29,13 +40,30 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        camera = Camera.main.transform;
+        startPosition = camera.localPosition;
+        initialDuration = duration;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (shouldShake)
+        {
+            if (duration > 0)
+            {
+                camera.localPosition = startPosition + Random.insideUnitSphere * power;
+                duration -= Time.deltaTime * SlowDownAmount;
+            }
+            else
+            {
+                shouldShake = false;
+                duration = initialDuration;
+                camera.localPosition = startPosition;
+            }
+        }
+
+
         if (suddenDeath) // if it's a tie at TimeIsUp
         {
             P1Life = 1;
@@ -66,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void HurtP1()
     {
+        shouldShake = true;
         P1Life -= 1;
 
         P1Flasks(); // execute void P1Flasks()
@@ -75,6 +104,7 @@ public class GameManager : MonoBehaviour
 
     public void HurtP2()
     {
+        shouldShake = true;
         P2Life -= 1;
 
         P2Flasks(); // execute void P2Flasks()
@@ -84,6 +114,8 @@ public class GameManager : MonoBehaviour
 
     public void FallP1() // player 1 falls sown (see FallTrigger script)
     {
+        shouldShake = true;
+
         fallSound.Play(); //when player 1 falls down, the fallSound will play
 
         P1Life = 0;
@@ -96,6 +128,8 @@ public class GameManager : MonoBehaviour
 
     public void FallP2() // player 2 falls sown (see FallTrigger script)
     {
+        shouldShake = true;
+
         fallSound.Play(); //when player 2 falls down, the fallSound will play
         
         P2Life = 0;
@@ -150,7 +184,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    
 
 
 

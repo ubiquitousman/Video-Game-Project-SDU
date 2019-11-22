@@ -7,6 +7,8 @@ using TMPro;
 
 public class PreCount : MonoBehaviour
 {
+   
+
     int countDownStartValue = 3;
     public TextMeshProUGUI Precount;
 
@@ -42,6 +44,8 @@ public class PreCount : MonoBehaviour
         }
         else
         {
+            PauseMenu.go = true;
+
             Precount.text = "GO!";
             startBoomSound.Play();
             musicTheme.Play();

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static bool go = false;
 
     public static bool GameIsPaused = false; // is the game paused?
     public GameObject pauseMenuUI; // We can assign the UI for PauseMenu to this script because this is public
@@ -37,12 +38,16 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
         GameIsPaused = false; // the game is not paused now
 
-        GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
-        Player1.GetComponent<P1Controller>().enabled = true; // player 1 can give inputs to the playerController again
+        if (go == true)
+        {
+            GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+            Player1.GetComponent<P1Controller>().enabled = true; // player 1 can give inputs to the playerController again
 
-        GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
-        Player2.GetComponent<P2Controller>().enabled = true; // player 2 can give inputs to the playerController again
-    }
+            GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+            Player2.GetComponent<P2Controller>().enabled = true; // player 2 can give inputs to the playerController again
+        }
+
+        }
 
     void Pause ()
     {

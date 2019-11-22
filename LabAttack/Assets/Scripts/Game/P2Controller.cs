@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class P2Controller : MonoBehaviour
 {
+    public float maxAmmo = 5;
+    public float currentAmmo = 3;
+
     public float moveSpeed; //the speed the player is able to move with
     public float jumpForce; //how high the player jump
 
@@ -83,7 +86,13 @@ public class P2Controller : MonoBehaviour
         anim.SetBool("Grounded", isGrounded);
         //anim.SetTrigger("Shoot");
     }
-   
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Monster")
+        {
+            FindObjectOfType<GameManager>().HurtP2();
+        }
+    }
 
 }
