@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false; // is the game paused?
     public GameObject pauseMenuUI; // We can assign the UI for PauseMenu to this script because this is public
 
+    public AudioSource pauseSound;
+    public AudioSource MenuButtonSound;
 
     void Start()
     {
@@ -60,12 +62,15 @@ public class PauseMenu : MonoBehaviour
 
         GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
         Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
+
+        pauseSound.Play();
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
         SceneManager.LoadScene("MainMenu"); // load the MainMenu scene
+
       
     }
 
@@ -86,7 +91,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
         GameIsPaused = false;  // the game is not paused now
         SceneManager.LoadScene("VersusLevel"); // load the VersusLevel scene
-        
     }
+
+
+    public void buttonSound()
+    {
+        MenuButtonSound.Play();
+    }
+
 
 }

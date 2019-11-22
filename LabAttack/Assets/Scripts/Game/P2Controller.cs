@@ -31,6 +31,7 @@ public class P2Controller : MonoBehaviour
 
     public AudioSource shootSound;
     public AudioSource jumpSound;
+    public AudioSource ammoSound;
 
     // Start is called before the first frame update
     void Start()
@@ -67,10 +68,14 @@ public class P2Controller : MonoBehaviour
 
         if(Input.GetKeyDown(shoot))
         {
-            GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
-            laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
-            anim.SetTrigger("Shoot");
-            shootSound.Play();
+            if (currentAmmo > 0)
+            {
+                GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
+                laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
+                anim.SetTrigger("Shoot");
+                shootSound.Play();
+                currentAmmo -= 1;
+            }
         }
 
         if(rb.velocity.x <0) //if we're moving to the left [...]
@@ -92,6 +97,21 @@ public class P2Controller : MonoBehaviour
         if (other.tag == "Monster")
         {
             FindObjectOfType<GameManager>().HurtP2();
+        }
+
+        if (other.tag == "Ammo")
+        {
+            if (currentAmmo != maxAmmo)
+            {
+                currentAmmo = maxAmmo;
+                ammoSound.Play();
+                Destroy(other.gameObject);
+            }
+        }
+
+        if (other.tag == "Health")
+        {
+            FindObjectOfType<GameManager>().HealP2();
         }
     }
 

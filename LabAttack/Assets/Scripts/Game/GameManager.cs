@@ -34,8 +34,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] p2flasks;
 
     public AudioSource hurtSound;
+    public AudioSource healSound;
     public AudioSource fallSound;
     public AudioSource explosionSound;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -109,7 +111,26 @@ public class GameManager : MonoBehaviour
 
         P2Flasks(); // execute void P2Flasks()
 
-        hurtSound.Play(); //when player 2 gets hit, the hurt sound effect will play
+        hurtSound.Play(); //when player 2 gets healed, the heal sound effect will play
+    }
+
+    public void HealP1()
+    {
+      
+        P2Life += 1;
+
+        P2Flasks(); // execute void P2Flasks()
+
+        healSound.Play(); //when player 2 gets healed, the heal sound effect will play
+    }
+
+    public void HealP2()
+    {
+        P2Life += 1;
+
+        P2Flasks(); // execute void P2Flasks()
+
+        healSound.Play(); //when player 2 gets hit, the hurt sound effect will play
     }
 
     public void FallP1() // player 1 falls sown (see FallTrigger script)

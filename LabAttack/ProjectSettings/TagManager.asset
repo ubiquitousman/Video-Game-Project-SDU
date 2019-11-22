@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - Platform
   - Monster
+  - Health
+  - Ammo
   layers:
   - Default
   - TransparentFX
