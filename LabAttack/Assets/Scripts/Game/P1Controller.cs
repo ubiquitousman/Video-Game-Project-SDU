@@ -7,6 +7,10 @@ public class P1Controller : MonoBehaviour
     public float maxAmmo = 5;
     public float currentAmmo = 5;
 
+    public float cooldown; //the time in seconds between each attack
+    bool playerInRange; //whether player is within the trigger collider and can be attacked
+    float timer; //timer for counting up to the next attack
+
     public float moveSpeed; //the speed the player is able to move with
     public float jumpForce; //how high the player jump
 
@@ -45,7 +49,14 @@ public class P1Controller : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround); //it will draw a "circle" and check if the ground is within the circle. If it is then it will tell us if isGrounded is true. If not, it's false
-    
+
+        timer += Time.deltaTime;
+
+        if(timer >= cooldown && playerInRange)
+        {
+            Attack();
+        }
+
 
         if (Input.GetKey(left))
         {
@@ -92,11 +103,18 @@ public class P1Controller : MonoBehaviour
         //anim.SetTrigger("Shoot");
     }
 
+    void Attack()
+    {
+        timer = 0;
+        FindObjectOfType<GameManager>().HurtP1();
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Monster")
         {
-            FindObjectOfType<GameManager>().HurtP1();
+            playerInRange = true;
+            
         }
 
         if (other.tag == "Ammo")
@@ -114,6 +132,14 @@ public class P1Controller : MonoBehaviour
             FindObjectOfType<GameManager>().HealP1();
         }
 
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Monster")
+        {
+            playerInRange = false;
+        }
     }
 
 }

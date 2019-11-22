@@ -621,6 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmmo: 5
   currentAmmo: 3
+  cooldown: 1
   moveSpeed: 7
   jumpForce: 18
   left: 276
@@ -4033,6 +4034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmmo: 5
   currentAmmo: 5
+  cooldown: 1
   moveSpeed: 7
   jumpForce: 18
   left: 97
@@ -6576,7 +6578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878910622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.522, y: -0.053, z: 0}
+  m_LocalPosition: {x: 0.79, y: -0.053, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 377012739}
@@ -22702,11 +22704,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6134733189662056485}
     m_Modifications:
-    - target: {fileID: 2968325174951731324, guid: ba512a10c4dfc264cb688103b98734b0,
-        type: 3}
-      propertyPath: m_Name
-      value: PlatformMiddle
-      objectReference: {fileID: 0}
     - target: {fileID: 2968325174951731326, guid: ba512a10c4dfc264cb688103b98734b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22761,6 +22758,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968325174951731324, guid: ba512a10c4dfc264cb688103b98734b0,
+        type: 3}
+      propertyPath: m_Name
+      value: PlatformMiddle
       objectReference: {fileID: 0}
     - target: {fileID: 2968325174951731327, guid: ba512a10c4dfc264cb688103b98734b0,
         type: 3}
