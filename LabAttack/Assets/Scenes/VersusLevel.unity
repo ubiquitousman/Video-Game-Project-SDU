@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmo: 5
-  currentAmmo: 3
+  currentAmmo: 5
   cooldown: 1
   moveSpeed: 7
   jumpForce: 18
@@ -685,7 +685,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 2
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &60346090
 SpriteRenderer:
@@ -4098,7 +4098,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 2
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1083758376
 SpriteRenderer:
@@ -22704,6 +22704,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6134733189662056485}
     m_Modifications:
+    - target: {fileID: 2968325174951731324, guid: ba512a10c4dfc264cb688103b98734b0,
+        type: 3}
+      propertyPath: m_Name
+      value: PlatformMiddle
+      objectReference: {fileID: 0}
     - target: {fileID: 2968325174951731326, guid: ba512a10c4dfc264cb688103b98734b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22758,11 +22763,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2968325174951731324, guid: ba512a10c4dfc264cb688103b98734b0,
-        type: 3}
-      propertyPath: m_Name
-      value: PlatformMiddle
       objectReference: {fileID: 0}
     - target: {fileID: 2968325174951731327, guid: ba512a10c4dfc264cb688103b98734b0,
         type: 3}
