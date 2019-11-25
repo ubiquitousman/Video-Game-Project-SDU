@@ -127,7 +127,13 @@ public class P2Controller : MonoBehaviour
 
         if (other.tag == "Health")
         {
-            FindObjectOfType<GameManager>().HealP2();
+            GameManager findGameManager = FindObjectOfType<GameManager>();
+            if (findGameManager.P2Life != 5)
+            {
+                findGameManager.HealP2();
+
+                Destroy(other.gameObject);
+            }
         }
     }
 

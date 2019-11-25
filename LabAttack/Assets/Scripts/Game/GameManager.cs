@@ -116,21 +116,25 @@ public class GameManager : MonoBehaviour
 
     public void HealP1()
     {
-      
-        P2Life += 1;
+        
+            P1Life += 1;
 
-        P2Flasks(); // execute void P2Flasks()
+            P1Flasks(); // execute void P2Flasks()
 
-        healSound.Play(); //when player 2 gets healed, the heal sound effect will play
+            healSound.Play(); //when player 2 gets healed, the heal sound effect will play
+        
     }
 
     public void HealP2()
     {
-        P2Life += 1;
+        if (P2Life != 5)
+        {
+            P2Life += 1;
 
-        P2Flasks(); // execute void P2Flasks()
+            P2Flasks(); // execute void P2Flasks()
 
-        healSound.Play(); //when player 2 gets hit, the hurt sound effect will play
+            healSound.Play(); //when player 2 gets hit, the hurt sound effect will play
+        }
     }
 
     public void FallP1() // player 1 falls sown (see FallTrigger script)

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class P1Controller : MonoBehaviour
 {
-    public float maxAmmo = 5;
-    public float currentAmmo = 5;
+    GameManager findGameManager;
+
+    public float maxAmmo = 5f;
+    public float currentAmmo = 5f;
 
     public float cooldown; //the time in seconds between each attack
     bool playerInRange; //whether player is within the trigger collider and can be attacked
@@ -43,6 +45,7 @@ public class P1Controller : MonoBehaviour
         rb = GetComponent <Rigidbody2D>(); //when the game starts we want this script to find the rigidbody that is attached to the player
         rb.isKinematic = false;
         anim = GetComponent<Animator>(); //when the game starts we want this script to find the animations stored in Animator
+        
     }
 
     // Update is called once per frame
@@ -124,14 +127,26 @@ public class P1Controller : MonoBehaviour
                 currentAmmo = maxAmmo;
                 ammoSound.Play();
                 Destroy(other.gameObject);
+
             }
          }
 
         if (other.tag == "Health")
         {
-            FindObjectOfType<GameManager>().HealP1();
-        }
+            findGameManager = FindObjectOfType<GameManager>();
+            if (findGameManager.P1Life != 5)
+            {
+                findGameManager.HealP1();
 
+                Destroy(other.gameObject);
+
+                
+                {
+
+                }
+
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -142,4 +157,5 @@ public class P1Controller : MonoBehaviour
         }
     }
 
+    
 }
