@@ -6,6 +6,8 @@ public class P1Controller : MonoBehaviour
 {
     GameManager findGameManager;
 
+    public bool spawnAmmo = false;
+    public bool spawnHealth = false;
     public float maxAmmo = 5f;
     public float currentAmmo = 5f;
 
@@ -120,31 +122,32 @@ public class P1Controller : MonoBehaviour
             
         }
 
+        
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
         if (other.tag == "Ammo")
         {
             if (currentAmmo != maxAmmo)
             {
-                currentAmmo = maxAmmo;
+                    currentAmmo = maxAmmo;
+                
                 ammoSound.Play();
                 Destroy(other.gameObject);
-
+                spawnAmmo = true;
             }
-         }
+        }
 
         if (other.tag == "Health")
         {
             findGameManager = FindObjectOfType<GameManager>();
             if (findGameManager.P1Life != 5)
             {
-                findGameManager.HealP1();
-
-                Destroy(other.gameObject);
-
+                    findGameManager.HealP1();
                 
-                {
-
-                }
-
+                Destroy(other.gameObject);
+                spawnHealth = true;
             }
         }
     }

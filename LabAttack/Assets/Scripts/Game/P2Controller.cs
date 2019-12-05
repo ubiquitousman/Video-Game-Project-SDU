@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class P2Controller : MonoBehaviour
 {
+    GameManager findGameManager;
+
+    public bool spawnAmmo = false;
+    public bool spawnHealth = false;
     public float maxAmmo = 5;
     public float currentAmmo = 5;
 
@@ -114,7 +118,10 @@ public class P2Controller : MonoBehaviour
         {
             playerInRange = true;
         }
+    }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
         if (other.tag == "Ammo")
         {
             if (currentAmmo != maxAmmo)
@@ -122,17 +129,20 @@ public class P2Controller : MonoBehaviour
                 currentAmmo = maxAmmo;
                 ammoSound.Play();
                 Destroy(other.gameObject);
+                spawnAmmo = true;
             }
         }
 
+
         if (other.tag == "Health")
         {
-            GameManager findGameManager = FindObjectOfType<GameManager>();
+            findGameManager = FindObjectOfType<GameManager>();
             if (findGameManager.P2Life != 5)
             {
                 findGameManager.HealP2();
 
                 Destroy(other.gameObject);
+                spawnHealth = true;
             }
         }
     }

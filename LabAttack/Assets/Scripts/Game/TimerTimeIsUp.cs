@@ -25,6 +25,8 @@ public class TimerTimeIsUp : MonoBehaviour
             {
                 GameObject preCount = GameObject.Find("Precount"); // the script finds the Countdown (the one that shows the time left)
                 preCount.SetActive(false); // the script TimerTimeIsUp gets enabled
+                GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
+                MainCamera.GetComponent<MultipleTargetCamera>().enabled = true;
             }
 
             TimeSpan spanTime = TimeSpan.FromSeconds(countDownStartValue);

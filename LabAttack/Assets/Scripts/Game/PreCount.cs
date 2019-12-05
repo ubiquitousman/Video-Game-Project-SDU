@@ -29,6 +29,9 @@ public class PreCount : MonoBehaviour
         GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
         Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
 
+       
+        
+
         countDownTimer();
     }
 
