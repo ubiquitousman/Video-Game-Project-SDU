@@ -230,7 +230,7 @@ MonoBehaviour:
   speed: 2
   distance: 1
   groundDetection: {fileID: 75480910}
-  monsterDetection: {fileID: 804383810}
+  platformDetection: {fileID: 804383810}
 --- !u!68 &6080166
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   speed: 2
   distance: 1
   groundDetection: {fileID: 230647776}
-  monsterDetection: {fileID: 399968626}
+  platformDetection: {fileID: 399968626}
 --- !u!95 &148203721
 Animator:
   serializedVersion: 3
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   speed: 2
   distance: 1
   groundDetection: {fileID: 1878910623}
-  monsterDetection: {fileID: 586341783}
+  platformDetection: {fileID: 586341783}
 --- !u!95 &377012741
 Animator:
   serializedVersion: 3
@@ -2514,7 +2514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399968626}
   m_Layer: 0
-  m_Name: monsterDetection
+  m_Name: platformDetection
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2968,7 +2968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559388497}
   m_Layer: 0
-  m_Name: monsterDetection
+  m_Name: platformDetection
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2998,7 +2998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 586341783}
   m_Layer: 0
-  m_Name: monsterDetection
+  m_Name: platformDetection
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3042,7 +3042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602919458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 7.3599997, z: 64.9}
+  m_LocalPosition: {x: -0.06, y: -0.543, z: 64.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3758,7 +3758,7 @@ MonoBehaviour:
   speed: 2
   distance: 1
   groundDetection: {fileID: 341543782}
-  monsterDetection: {fileID: 559388497}
+  platformDetection: {fileID: 559388497}
 --- !u!95 &753470215
 Animator:
   serializedVersion: 3
@@ -4112,7 +4112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804383810}
   m_Layer: 0
-  m_Name: monsterDetection
+  m_Name: platformDetection
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -6457,7 +6457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portal: {fileID: 4211521449085591155, guid: 1c1825a2049a7bf488d11aa66caa3e71, type: 3}
-  randomLocation: {x: 0, y: 0, z: 0}
+  point1: {x: 0, y: 0, z: 0}
   power: 0.1
   duration: 5
   camera: {fileID: 0}
@@ -7859,36 +7859,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1650527090
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1650527091}
-  m_Layer: 0
-  m_Name: PortalPoint2
-  m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1650527091
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650527090}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 7.3599997, z: 64.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1662226144
 GameObject:
   m_ObjectHideFlags: 0
@@ -8826,14 +8796,14 @@ RectTransform:
   m_GameObject: {fileID: 1812133673}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 134.31746}
-  m_LocalScale: {x: 30, y: 30, z: 0}
+  m_LocalScale: {x: 46.80636, y: 46.80636, z: 0}
   m_Children: []
   m_Father: {fileID: 4503238232747740006}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2214737, y: 1.4}
+  m_AnchoredPosition: {x: -1.2215, y: 3.9}
   m_SizeDelta: {x: 6.88, y: 3.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1812133676
@@ -9252,7 +9222,7 @@ GameObject:
   - component: {fileID: 1936965698}
   m_Layer: 0
   m_Name: MidHigh
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

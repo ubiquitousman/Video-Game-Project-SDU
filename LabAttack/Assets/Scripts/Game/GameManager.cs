@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //Portal
     public GameObject portal;
-    public Vector3 randomLocation;
+    public Vector3 point1;
    
 
     // Camera related
@@ -228,6 +228,9 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPortal()
     {
+        point1 = GameObject.Find("PortalPoint1").transform.position;
+        Instantiate(portal, point1, Quaternion.identity);
+        /*
         int d2 = Random.Range(1, 3);
         if (d2 == 1)
         {
@@ -244,6 +247,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instantiate(portal, randomLocation, Quaternion.identity);
+    */
     }
 
 
