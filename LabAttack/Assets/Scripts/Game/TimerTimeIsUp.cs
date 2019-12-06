@@ -10,6 +10,7 @@ public class TimerTimeIsUp : MonoBehaviour
     int countDownStartValue = 119;
     public TextMeshProUGUI Countdown;
     string addZero = "";
+   
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,11 @@ public class TimerTimeIsUp : MonoBehaviour
                 GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
                 MainCamera.GetComponent<MultipleTargetCamera>().enabled = true;
             }
+            if (countDownStartValue == 10)
+            {
+                FindObjectOfType<GameManager>().SpawnPortal();
+            }
+
 
             TimeSpan spanTime = TimeSpan.FromSeconds(countDownStartValue);
             Countdown.text = "Time Left: " + spanTime.Minutes + ":" + addZero + spanTime.Seconds; ;
@@ -44,4 +50,8 @@ public class TimerTimeIsUp : MonoBehaviour
             FindObjectOfType<GameManager>().TimeUp(); // execute void TimeUp() in the GameManager script
         }
     }
+
+
+   
+
 }

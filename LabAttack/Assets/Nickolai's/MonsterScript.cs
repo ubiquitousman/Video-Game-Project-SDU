@@ -8,14 +8,16 @@ public class MonsterScript : MonoBehaviour
     public float distance;
 
     private bool movingRight = true;
-    public Transform groundDetection; 
+    public Transform groundDetection;
+    public Transform monsterDetection;
 
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-        if(groundInfo.collider == false)
+        RaycastHit2D monsterInfo = Physics2D.Raycast(monsterDetection.position, Vector2.down, distance);
+        if (groundInfo.collider == false || monsterInfo.collider == true)
         {
             if(movingRight == true)
             {

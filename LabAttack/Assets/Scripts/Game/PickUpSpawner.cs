@@ -12,10 +12,14 @@ public class PickUpSpawner : MonoBehaviour
     public float midAmmoTime = 10;
     public float randomTime = 10;
     public bool spawning = false;
+    public bool touchPlayer = false;
+    public bool touchPickup = false;
 
     public string SpawnType = "";
     public GameObject spawnHealth;
     public GameObject spawnAmmo;
+
+    
 
     
     void Start()
@@ -28,7 +32,14 @@ public class PickUpSpawner : MonoBehaviour
 
     void Update()
     {
-
+        if (touchPlayer && !touchPickup)
+        {
+            spawning = true;
+        }
+        if ( touchPickup)   
+        {
+            spawning = false;
+        }
 
         if (spawning == true)
         {
@@ -40,7 +51,8 @@ public class PickUpSpawner : MonoBehaviour
 
     public void Spawn()
     {
-     
+        touchPlayer = false;
+        touchPickup = false;
 
         // How long should it take before it spawns?
         if (SpawnType == "HealthSpawner")
@@ -51,9 +63,11 @@ public class PickUpSpawner : MonoBehaviour
             {
             
             targetTime = midAmmoTime;
-            }else
+            }
+        else if (SpawnType == "RandomSpawner")
             {
-                targetTime = 15;
+             targetTime = randomTime; 
+                
             }
 
 
@@ -78,7 +92,7 @@ public class PickUpSpawner : MonoBehaviour
                 Instantiate(spawnAmmo, this.transform.position, Quaternion.identity);
 
             }
-            else
+            else if (SpawnType == "RandomSpawner")
             {
                 int d5 = Random.Range(1, 6);
                 if (d5 == 5 || d5 == 6)
@@ -91,10 +105,12 @@ public class PickUpSpawner : MonoBehaviour
                 }
             }
 
-
+            touchPickup = true;
             spawning = false;
             spawnTimer = 0;
-            }
+            randomTime = Random.Range(7, 30);
+
+        }
     }
     void OnTriggerStay2D(Collider2D other)
     {
@@ -106,37 +122,62 @@ public class PickUpSpawner : MonoBehaviour
 
             if (other.tag == "Player1")
             {
-     
-                if (findGameManager.P1Life != 5 && (SpawnType == "HealthSpawner" || SpawnType == "RandomSpawner"))
+                touchPlayer = true;
+                if  (SpawnType == "HealthSpawner" || SpawnType == "RandomSpawner")
                 {
-                    spawning = true;
-                    other.GetComponent<P1Controller>().spawnHealth = false;
+                    if (other.GetComponent<P1Controller>().spawnHealth == true)
+                    {
+                        spawning = true;
+                        touchPickup = false;
+                        other.GetComponent<P1Controller>().spawnHealth = false;
+                    }
                 }
-                if (other.GetComponent<P1Controller>().spawnAmmo == true && (SpawnType == "AmmoSpawner" || SpawnType == "RandomSpawner"))
+                if (SpawnType == "AmmoSpawner" || SpawnType == "RandomSpawner")
                 {
-                    spawning = true;
-                    other.GetComponent<P1Controller>().spawnAmmo = false;
+                    if (other.GetComponent<P1Controller>().spawnAmmo == true)
+                    {
+                        spawning = true;
+                        touchPickup = false;
+                        other.GetComponent<P1Controller>().spawnAmmo = false;
+                    }
                 }
-                
+   
             }
             if (other.tag == "Player2")
             {
-       
-                if (findGameManager.P2Life != 5 && (SpawnType == "HealthSpawner" || SpawnType == "RandomSpawner"))
+                touchPlayer = true;
+                if (SpawnType == "HealthSpawner" || SpawnType == "RandomSpawner")
                 {
-                    spawning = true;
-                    other.GetComponent<P1Controller>().spawnHealth = false;
+                    if (other.GetComponent<P2Controller>().spawnHealth == true)
+                    {
+                        spawning = true;
+                        touchPickup = false;
+                        other.GetComponent<P2Controller>().spawnHealth = false;
+                    }
                 }
-                if (other.GetComponent<P2Controller>().spawnAmmo == true && (SpawnType == "AmmoSpawner" || SpawnType == "RandomSpawner"))
+                if (SpawnType == "AmmoSpawner" || SpawnType == "RandomSpawner")
                 {
-                    spawning = true;
-                    other.GetComponent<P2Controller>().spawnAmmo = false;
+                    if (other.GetComponent<P2Controller>().spawnAmmo == true)
+                    {
+                        spawning = true;
+                        touchPickup = false;
+                        other.GetComponent<P2Controller>().spawnAmmo = false;
+                    }
                 }
-                
+
             }
 
         }
 
     }
+
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player2"|| other.tag == "Player1")
+            { touchPlayer = false; }
+            
+    }
+    
 
 }

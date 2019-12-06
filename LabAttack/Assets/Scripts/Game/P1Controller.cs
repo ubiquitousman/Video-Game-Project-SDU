@@ -132,7 +132,7 @@ public class P1Controller : MonoBehaviour
             if (currentAmmo != maxAmmo)
             {
                     currentAmmo = maxAmmo;
-                
+                Debug.Log("Ammo!");
                 ammoSound.Play();
                 Destroy(other.gameObject);
                 spawnAmmo = true;
@@ -145,7 +145,7 @@ public class P1Controller : MonoBehaviour
             if (findGameManager.P1Life != 5)
             {
                     findGameManager.HealP1();
-                
+                Debug.Log("Health!");
                 Destroy(other.gameObject);
                 spawnHealth = true;
             }

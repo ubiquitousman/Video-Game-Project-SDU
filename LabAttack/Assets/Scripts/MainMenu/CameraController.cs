@@ -13,7 +13,10 @@ public class CameraController : MonoBehaviour
   Vector3 soundSettingsPosition;
   Vector3 graphicSettingsPosition;
   Vector3 playSettingsPosition;
-    Vector3 moveHere;
+  Vector3 moveHere;
+
+    public AudioSource launchSound;
+    public AudioSource buttonSound;
 
 
     public Vector3 newPosition;
@@ -41,7 +44,7 @@ public class CameraController : MonoBehaviour
 
     public void Launch()
     {
-        
+        launchSound.Play();
         mainMenuPosition = new Vector3(0, 0, -10);
         newPosition = mainMenuPosition;
         timeLerped = 0.0f;
@@ -50,6 +53,7 @@ public class CameraController : MonoBehaviour
 
     public void MainMenu ()
     {
+        buttonSound.Play();
         mainMenuPosition = new Vector3(0, 0, -10);
         newPosition = mainMenuPosition;
         timeLerped = 0.0f;
@@ -58,6 +62,7 @@ public class CameraController : MonoBehaviour
 
     public void Team()
     {
+        buttonSound.Play();
         teamPosition = new Vector3(0, -11, -10);
         newPosition = teamPosition;
         timeLerped = 0.0f;
@@ -66,6 +71,7 @@ public class CameraController : MonoBehaviour
 
     public void Settings ()
     {
+        buttonSound.Play();
         settingsPosition = new Vector3(-16, 1, -10);
         newPosition = settingsPosition;
         timeLerped = 0.0f;
@@ -74,6 +80,7 @@ public class CameraController : MonoBehaviour
 
     public void SoundSettings ()
     {
+        buttonSound.Play();
         soundSettingsPosition = new Vector3(-33, 8, -10);
         newPosition = soundSettingsPosition;
         timeLerped = 0.0f;
@@ -82,6 +89,7 @@ public class CameraController : MonoBehaviour
 
     public void graphicSettings ()
     {
+        buttonSound.Play();
         graphicSettingsPosition = new Vector3(-33, -6, -10);
         newPosition = graphicSettingsPosition;
         timeLerped = 0.0f;
@@ -90,6 +98,7 @@ public class CameraController : MonoBehaviour
 
     public void playSettings ()
     {
+        buttonSound.Play();
         playSettingsPosition = new Vector3(20, 1, -10);
         newPosition = playSettingsPosition;
         timeLerped = 0.0f;

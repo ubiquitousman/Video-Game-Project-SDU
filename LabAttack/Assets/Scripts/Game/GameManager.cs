@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Portal
+    public GameObject portal;
+    public Vector3 randomLocation;
+   
 
     // Camera related
     public float power = 0.1f;
@@ -52,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         if (shouldShake)
         {
+            startPosition = camera.localPosition;
             if (duration > 0)
             {
                 camera.localPosition = startPosition + Random.insideUnitSphere * power;
@@ -166,14 +171,26 @@ public class GameManager : MonoBehaviour
 
     public void TimeUp ()
     {
+        
+        
+        
+        
+        /*
         explosionSound.Play();
         if (P2Life == P1Life)
-        { suddenDeath = true; }
+        {
+            suddenDeath = true;
+        }
 
         else if (P1Life > P2Life)
-        { SceneManager.LoadScene("P1Won"); }
-        else if (P2Life>P1Life)
-        { SceneManager.LoadScene("P2Won"); }
+        {
+           SceneManager.LoadScene("P1Won");
+        }
+        else if (P2Life > P1Life)
+        {
+            SceneManager.LoadScene("P2Won");
+        }
+    */
     }
 
 
@@ -209,7 +226,25 @@ public class GameManager : MonoBehaviour
     }
 
 
-    
+    public void SpawnPortal()
+    {
+        int d2 = Random.Range(1, 3);
+        if (d2 == 1)
+        {
+            
+            randomLocation = GameObject.Find("PortalPoint1").transform.position;
+        }
+        else if (d2 == 2)
+        {
+            randomLocation = GameObject.Find("PortalPoint2").transform.position;
+        }
+        else
+        {
+            randomLocation = GameObject.Find("PortalPoint2").transform.position;
+        }
+
+        Instantiate(portal, randomLocation, Quaternion.identity);
+    }
 
 
 

@@ -7,7 +7,9 @@ public class QuantumCharger : MonoBehaviour
     public bool charging = false;
     public bool onCooldown = false;
     public float timerValue = 0;
-    public float chargeValue = 2;
+    public float chargeFrequency = 2;
+    public float chargedValue = 0;
+   
     
 
     void Timer()
