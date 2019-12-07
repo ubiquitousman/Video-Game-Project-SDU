@@ -128,6 +128,11 @@ public class PauseMenu : MonoBehaviour
        
         MainCamera.GetComponent<MultipleTargetCamera>().enabled = false;
 
+        // Portal
+        GameObject Portal = GameObject.Find("Portal"); // the script finds the Portal
+        Portal.GetComponent<Portal>().fullyCharged = false;
+
+
     }
 
 

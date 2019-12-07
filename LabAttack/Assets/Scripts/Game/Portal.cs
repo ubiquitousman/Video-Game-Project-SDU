@@ -25,19 +25,7 @@ public class Portal : MonoBehaviour
 
     /* In GameManager
       
-    // Portal  
-    public float chargedValue = 0;
-    public float chargedPercent = 0;
-    public bool fullyCharged = false;
-
-    void Update()
-    {
-        // 
-        if (chargedPercent == 100)
-            {
-                fullyCharged = true;
-            }
-    }
+  
      
      void TeleportP1 ()
       {

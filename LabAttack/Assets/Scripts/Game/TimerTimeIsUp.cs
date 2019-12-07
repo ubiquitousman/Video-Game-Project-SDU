@@ -30,7 +30,7 @@ public class TimerTimeIsUp : MonoBehaviour
             }
             if (countDownStartValue == 10)
             {
-           //     Portal.GetComponent<Portal>().
+                 Portal.GetComponent<Portal>().fullyCharged = true;
 
             }
 
