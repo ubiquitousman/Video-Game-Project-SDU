@@ -165,5 +165,7 @@ public class P2Controller : MonoBehaviour
     public void GoToStartPosition()
     {
         this.transform.position = startpos;
+        findGameManager.P2Life = 5;
+        currentAmmo = 3;
     }
 }

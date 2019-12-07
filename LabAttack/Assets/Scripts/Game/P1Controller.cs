@@ -170,5 +170,8 @@ public class P1Controller : MonoBehaviour
     public void GoToStartPosition()
     {
         this.transform.position = startpos;
+        findGameManager.P1Life = 5;
+        currentAmmo = 3;
+
     }
 }

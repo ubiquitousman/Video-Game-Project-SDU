@@ -56,11 +56,11 @@ public class Portal : MonoBehaviour
         {
             if (other.tag == "Player1")
             {
-                SceneManager.LoadScene("P1Won");
+                findGameManager.p1Win();
             }
             if (other.tag == "Player2")
             {
-                SceneManager.LoadScene("P2Won");
+                findGameManager.p2Win();
             }
         }
        

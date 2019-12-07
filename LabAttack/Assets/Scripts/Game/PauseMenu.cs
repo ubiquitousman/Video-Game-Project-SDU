@@ -15,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     public AudioSource pauseSound;
     public AudioSource MenuButtonSound;
 
+    GameManager findGameManager;
+
     void Start()
     {
         GameIsPaused = false; // the game is not paused in the beginning of the game
@@ -131,6 +133,11 @@ public class PauseMenu : MonoBehaviour
         // Portal
         GameObject Portal = GameObject.Find("Portal"); // the script finds the Portal
         Portal.GetComponent<Portal>().fullyCharged = false;
+
+        // GameManager
+        findGameManager = FindObjectOfType<GameManager>();
+        findGameManager.PointGiven = false;
+
 
 
     }

@@ -2,9 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+    // Score
+    public TextMeshProUGUI P1Score;
+    public TextMeshProUGUI P2Score;
+    public bool PointGiven = false;
+    public float P1ScoreValue = 0;
+    public float P2ScoreValue = 0;
+
     //Portal
     public GameObject portal;
     public Vector3 point1;
@@ -69,7 +78,8 @@ public class GameManager : MonoBehaviour
                 camera.localPosition = startPosition;
             }
         }
-
+       
+        /*
 
         if (suddenDeath) // if it's a tie at TimeIsUp
         {
@@ -86,16 +96,20 @@ public class GameManager : MonoBehaviour
            
             suddenDeath = false; // this variable is set to false, so the sound won't repeat itself
 
-        }
+            
+        }*/
 
         if(P1Life <= 0) 
         {
-            SceneManager.LoadScene("P2Won"); // Player 2 won the game
+            p2Win();
+            // SceneManager.LoadScene("P2Won"); // Player 2 won the game
         }
 
+        
         if (P2Life <= 0) 
         {
-            SceneManager.LoadScene("P1Won"); // Player 1 won the game
+            p1Win();
+            // SceneManager.LoadScene("P1Won"); // Player 1 won the game
         }
     }
 
@@ -222,5 +236,28 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void p1Win()
+    {
+        if (PointGiven == false)
+        {
+            P1ScoreValue++;
+            P1Score.text = ""+P1ScoreValue;
+            PointGiven = true;
+        }
+
+    }
+    public void p2Win()
+    {
+        if (PointGiven == false)
+        {
+            P2ScoreValue++;
+            P2Score.text = ""+P2ScoreValue;
+            PointGiven = true;
+        }
+
+       
+    }
+    
 
 }
