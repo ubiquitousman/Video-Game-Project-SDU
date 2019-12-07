@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
     public bool p2won = false;
     public bool suddenDeath = false;
 
-    public GameObject[] p1flasks;
-    public GameObject[] p2flasks;
+    public GameObject[] p1hearts;
+    public GameObject[] p2hearts;
 
     public AudioSource hurtSound;
     public AudioSource healSound;
@@ -75,11 +75,11 @@ public class GameManager : MonoBehaviour
         {
             P1Life = 1;
 
-            P1Flasks(); // execute void P1Flasks()
+            P1Hearts(); // execute void P1Hearts()
 
             P2Life = 1;
 
-            P2Flasks(); // execute void P2Flasks()
+            P2Hearts(); // execute void P2Hearts()
 
             SuddenDeath.SetActive(true); // the screen will show it's Sudden Death
 
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         shouldShake = true;
         P1Life -= 1;
 
-        P1Flasks(); // execute void P1Flasks()
+        P1Hearts(); // execute void P1Hearts()
 
         hurtSound.Play(); //when player 1 gets hit, the hurt sound effect will play
     }
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         shouldShake = true;
         P2Life -= 1;
 
-        P2Flasks(); // execute void P2Flasks()
+        P2Hearts(); // execute void P2Hearts()
 
         hurtSound.Play(); //when player 2 gets healed, the heal sound effect will play
     }
@@ -124,9 +124,9 @@ public class GameManager : MonoBehaviour
         
             P1Life += 1;
 
-            P1Flasks(); // execute void P2Flasks()
+            P1Hearts(); // execute void P2Hearts()
 
-            healSound.Play(); //when player 2 gets healed, the heal sound effect will play
+        healSound.Play(); //when player 2 gets healed, the heal sound effect will play
         
     }
 
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         {
             P2Life += 1;
 
-            P2Flasks(); // execute void P2Flasks()
+            P2Hearts(); // execute void P2Hearts()
 
             healSound.Play(); //when player 2 gets hit, the hurt sound effect will play
         }
@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
 
         P1Life = 0;
 
-        P1Flasks(); // execute void P1Flasks()
+        P1Hearts(); // execute void P1Hearts()
 
         hurtSound.Play(); //when player 1 falls down, the hurtSound will also play
 
@@ -164,8 +164,8 @@ public class GameManager : MonoBehaviour
         
         P2Life = 0;
 
-        P2Flasks(); // execute void P2Flasks()
-        
+        P2Hearts(); // execute void P2Hearts()
+
         hurtSound.Play(); //when player 2 falls down, the hurtSound will also play
     }
 
@@ -193,32 +193,32 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void P1Flasks ()
+    public void P1Hearts()
     {
-        for (int i = 0; i < p1flasks.Length; i++)
+        for (int i = 0; i < p1hearts.Length; i++)
         {
             if (P1Life > i)
             {
-                p1flasks[i].SetActive(true);
+                p1hearts[i].SetActive(true);
             }
             else
             {
-                p1flasks[i].SetActive(false);
+                p1hearts[i].SetActive(false);
             }
         }
     }
 
-    public void P2Flasks()
+    public void P2Hearts()
     {
-        for (int i = 0; i < p2flasks.Length; i++)
+        for (int i = 0; i < p2hearts.Length; i++)
         {
             if (P2Life > i)
             {
-                p2flasks[i].SetActive(true);
+                p2hearts[i].SetActive(true);
             }
             else
             {
-                p2flasks[i].SetActive(false);
+                p2hearts[i].SetActive(false);
             }
         }
     }
