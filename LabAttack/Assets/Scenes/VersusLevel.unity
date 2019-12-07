@@ -624,7 +624,7 @@ MonoBehaviour:
   spawnAmmo: 0
   spawnHealth: 0
   maxAmmo: 5
-  currentAmmo: 5
+  currentAmmo: 3
   cooldown: 1
   moveSpeed: 7
   jumpForce: 18
@@ -5039,7 +5039,7 @@ MonoBehaviour:
   spawnAmmo: 0
   spawnHealth: 0
   maxAmmo: 5
-  currentAmmo: 5
+  currentAmmo: 3
   cooldown: 1
   moveSpeed: 7
   jumpForce: 18
