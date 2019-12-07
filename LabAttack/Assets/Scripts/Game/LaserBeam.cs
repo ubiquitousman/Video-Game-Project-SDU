@@ -36,17 +36,28 @@ public class LaserBeam : MonoBehaviour
             FindObjectOfType<GameManager>().HurtP2();
         }
 
-       
-
-        if (other.tag == "Health" || other.tag == "Ammo" || other.tag == "HealthSpawner" || other.tag == "AmmoSpawner" || other.tag == "RandomSpawner" || other.tag == "Monster"|| other.tag == "Portal")
-        {
-            // don't destroy
-        }
-        else
+        //blood
+        if (other.gameObject.tag.Equals("Player1"))
         {
             Instantiate(laserBeamEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        
+
+        if (other.gameObject.tag.Equals("Player2"))
+        {
+            Instantiate(laserBeamEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+
+        if (other.tag == "Health" || other.tag == "Ammo" || other.tag == "HealthSpawner" || other.tag == "AmmoSpawner" || other.tag == "RandomSpawner" || other.tag == "Monster" || other.tag == "Portal")
+        {
+            // don't destroy
+
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

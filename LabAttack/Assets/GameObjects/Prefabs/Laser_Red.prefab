@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserSpeed: 22
-  laserBeamEffect: {fileID: 701900591986390391, guid: cc0e4d7b836353846acfb14a32ff076e,
+  laserBeamEffect: {fileID: 2239086845080477850, guid: 3fba6eabab1e03249b747f4f38a9cbc0,
     type: 3}
 --- !u!61 &61301067530081416
 BoxCollider2D:
