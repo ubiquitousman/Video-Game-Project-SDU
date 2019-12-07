@@ -1,19 +1,15 @@
 fileFormatVersion: 2
-guid: 56980bf6a4a5c74479cddd891e6482d0
+guid: cbb7f854e9f153c4683780f2f8521558
 TextureImporter:
   fileIDToRecycleName:
-    21300000: GFX_LAB-50_0
-    21300002: GFX_LAB-50_1
-    21300004: GFX_LAB-50_2
-    21300006: GFX_LAB-50_3
-    21300008: GFX_LAB-50_4
-    21300010: GFX_LAB-50_5
-    21300012: GFX_LAB-50_6
-    21300014: GFX_LAB-50_7
-    21300016: GFX_LAB-50_8
-    21300018: GFX_LAB-50_9
-    21300020: GFX_LAB-50_10
-    21300022: GFX_LAB-50_11
+    21300000: CollectablesTest_0
+    21300002: CollectablesTest_1
+    21300004: CollectablesTest_2
+    21300006: CollectablesTest_3
+    21300008: CollectablesTest_4
+    21300010: CollectablesTest_5
+    21300012: CollectablesTest_6
+    21300014: CollectablesTest_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -39,7 +35,7 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
@@ -48,7 +44,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -96,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GFX_LAB-50_0
+      name: CollectablesTest_0
       rect:
         serializedVersion: 2
-        x: 1320
-        y: 63
-        width: 287
-        height: 371
+        x: 387
+        y: 21
+        width: 27
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,19 +106,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ef931a85c119945aa00d422d31ccbb
+      spriteID: 989e397bcd9041e4e8a2a925e0182acd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_1
+      name: CollectablesTest_1
       rect:
         serializedVersion: 2
-        x: 537
-        y: 283
-        width: 445
-        height: 180
+        x: 434
+        y: 36
+        width: 27
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,19 +126,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 833a27fa9b679484aa7c07aca7af1e8d
+      spriteID: f77eaadd0df82ea4c9d63d3190ee9e02
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_2
+      name: CollectablesTest_2
       rect:
         serializedVersion: 2
-        x: 472
-        y: 476
-        width: 1145
-        height: 178
+        x: 434
+        y: 41
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,19 +146,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07a867d9be996ef448689034f434e438
+      spriteID: a22643db192b2834997631913921959e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_3
+      name: CollectablesTest_3
       rect:
         serializedVersion: 2
-        x: 506
-        y: 73
-        width: 397
-        height: 177
+        x: 434
+        y: 67
+        width: 27
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd68201ad59d7614091ac8e23d9f6234
+      spriteID: ea3ab70089a5440469c1027f613291bc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_4
+      name: CollectablesTest_4
       rect:
         serializedVersion: 2
-        x: 1661
-        y: 255
-        width: 200
-        height: 184
+        x: 434
+        y: 83
+        width: 27
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,19 +186,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 945b744a2034c1747b77dfb3acd70fb6
+      spriteID: 69e0903b99c785547906ebd9950d3bb5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_5
+      name: CollectablesTest_5
       rect:
         serializedVersion: 2
-        x: 369
-        y: 755
-        width: 1156
-        height: 152
+        x: 387
+        y: 68
+        width: 27
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,19 +206,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f43fe666dd86454c8e6d1b117162175
+      spriteID: 42f0d2cc2939c95459e3ca6959a4fe05
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_6
+      name: CollectablesTest_6
       rect:
         serializedVersion: 2
-        x: 492
-        y: 761
-        width: 497
-        height: 180
+        x: 387
+        y: 26
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,19 +226,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b712ded0dd5d954e949353401e4d82d
+      spriteID: 6bc700f2ac24985449afea8c2f2af660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GFX_LAB-50_7
+      name: CollectablesTest_7
       rect:
         serializedVersion: 2
-        x: 807
-        y: 279
-        width: 181
-        height: 185
+        x: 387
+        y: 52
+        width: 27
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,87 +246,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88adafaa54b4b584ab4c1aa3f9a24352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GFX_LAB-50_8
-      rect:
-        serializedVersion: 2
-        x: 839
-        y: 374
-        width: 169
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de0cd2642ba5ded40a4f46cf720a0571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GFX_LAB-50_9
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 707
-        width: 1742
-        height: 373
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43a3e013a14bb7a4d9a5f8c7767ad97c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GFX_LAB-50_10
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 690
-        width: 868
-        height: 390
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56314da905c197240bf3ca504a2703f3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GFX_LAB-50_11
-      rect:
-        serializedVersion: 2
-        x: 937
-        y: 687
-        width: 911
-        height: 393
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5fe82716f63e31b45bb8c523199e6306
+      spriteID: 078201ca52d886049911262d3ec2a495
       vertices: []
       indices: 
       edges: []
@@ -338,14 +254,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 93e822aeca2363641ad70d98e8e60ae9
+    spriteID: 4654b14bf19ec214c83d9d9e574fcd1d
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

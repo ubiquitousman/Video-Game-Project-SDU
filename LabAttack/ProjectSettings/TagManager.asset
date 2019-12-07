@@ -12,6 +12,7 @@ TagManager:
   - Ammo
   - RandomSpawner
   - Portal
+  - HealthSpawner
   layers:
   - Default
   - TransparentFX
