@@ -10,9 +10,14 @@ public class GameManager : MonoBehaviour
     // Score
     public TextMeshProUGUI P1Score;
     public TextMeshProUGUI P2Score;
+    public TextMeshProUGUI whoWon;
     public bool PointGiven = false;
     public float P1ScoreValue = 0;
     public float P2ScoreValue = 0;
+    public GameObject ScoreScreen;
+
+    //Explossion
+    public GameObject explosion;
 
     //Portal
     public GameObject portal;
@@ -186,13 +191,20 @@ public class GameManager : MonoBehaviour
     public void TimeUp ()
     {
         
-       
-        /*
+   
         explosionSound.Play();
+        explosion.SetActive(true);
+        Time.timeScale = 0.5f;
+        PointGiven = true;
+        P1Life = 0;
+        P2Life = 0;
+        P1Hearts();
+        P2Hearts();
+        ScoreScreen.SetActive(true);
+        whoWon.text = "Both Scientists died in the explosion!";
+
+        /*
         
-        {
-            suddenDeath = true;
-        }
 
         else if (P1Life > P2Life)
         {
@@ -244,6 +256,8 @@ public class GameManager : MonoBehaviour
             P1ScoreValue++;
             P1Score.text = ""+P1ScoreValue;
             PointGiven = true;
+            ScoreScreen.SetActive(true);
+            whoWon.text = "Player 1 eliminated Player 2 and managed to escape the laboratory before it exploded!";
         }
 
     }
@@ -254,6 +268,8 @@ public class GameManager : MonoBehaviour
             P2ScoreValue++;
             P2Score.text = ""+P2ScoreValue;
             PointGiven = true;
+            ScoreScreen.SetActive(true);
+            whoWon.text = "Player 2 eliminated Player 1 and managed to escape the laboratory before it exploded!";
         }
 
        

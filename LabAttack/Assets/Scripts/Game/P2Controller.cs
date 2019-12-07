@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class P2Controller : MonoBehaviour
 {
-    GameManager findGameManager;
+    public GameManager findGameManager;
 
+    // Ammo
     public bool spawnAmmo = false;
     public bool spawnHealth = false;
     public float maxAmmo = 5;
     public float currentAmmo = 5;
+    public GameObject[] p2Ammo;
 
     public float cooldown; //the time in seconds between each attack
     bool playerInRange; //whether player is within the trigger collider and can be attacked
@@ -40,6 +42,7 @@ public class P2Controller : MonoBehaviour
     public AudioSource shootSound;
     public AudioSource jumpSound;
     public AudioSource ammoSound;
+    public AudioSource noAmmoSound;
     private Vector3 startpos;
 
     // Start is called before the first frame update
@@ -49,6 +52,7 @@ public class P2Controller : MonoBehaviour
         rb.isKinematic = false;
         anim = GetComponent<Animator>(); //when the game starts we want this script to find the animations stored in Animator
         StartPosition();
+        P2Ammo();
     }
 
     // Update is called once per frame
@@ -86,11 +90,15 @@ public class P2Controller : MonoBehaviour
         {
             if (currentAmmo > 0)
             {
+                P2Ammo();
                 GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
                 laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
                 anim.SetTrigger("Shoot");
                 shootSound.Play();
                 currentAmmo -= 1;
+            }else
+            {
+                noAmmoSound.Play();
             }
         }
 
@@ -165,7 +173,23 @@ public class P2Controller : MonoBehaviour
     public void GoToStartPosition()
     {
         this.transform.position = startpos;
-        findGameManager.P2Life = 5;
+        FindObjectOfType<GameManager>().P2Life = 5;
+        FindObjectOfType<GameManager>().P1Hearts();
         currentAmmo = 3;
+    }
+
+    public void P2Ammo()
+    {
+        for (int i = 0; i < p2Ammo.Length; i++)
+        {
+            if (currentAmmo > i)
+            {
+                p2Ammo[i].SetActive(true);
+            }
+            else
+            {
+                p2Ammo[i].SetActive(false);
+            }
+        }
     }
 }

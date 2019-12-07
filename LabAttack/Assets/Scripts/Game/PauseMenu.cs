@@ -101,13 +101,14 @@ public class PauseMenu : MonoBehaviour
         Player1.GetComponent<P1Controller>().GoToStartPosition();
         Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
         Player1.GetComponent<P1Controller>().rb.isKinematic = true;
+        Player1.GetComponent<P1Controller>().P1Ammo();
 
         // Player 2
         GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
         Player2.GetComponent<P2Controller>().GoToStartPosition();
         Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
         Player2.GetComponent<P2Controller>().rb.isKinematic = true;
-
+        Player2.GetComponent<P2Controller>().P2Ammo();
         // Timer
         countDown.GetComponent<TimerTimeIsUp>().CancelInvoke();
         countDown.GetComponent<TimerTimeIsUp>().enabled = false; // the script TimerTimeIsUp gets disabled
@@ -137,6 +138,7 @@ public class PauseMenu : MonoBehaviour
         // GameManager
         findGameManager = FindObjectOfType<GameManager>();
         findGameManager.PointGiven = false;
+        findGameManager.explosion.SetActive(false);
 
 
 
