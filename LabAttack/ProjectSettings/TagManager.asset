@@ -10,6 +10,8 @@ TagManager:
   - Monster
   - Health
   - Ammo
+  - RandomSpawner
+  - Portal
   layers:
   - Default
   - TransparentFX

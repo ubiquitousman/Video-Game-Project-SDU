@@ -11,6 +11,7 @@ public class TimerTimeIsUp : MonoBehaviour
     public TextMeshProUGUI Countdown;
     string addZero = "";
     public GameObject preCount;
+    public GameObject Portal;
 
 
     
@@ -27,9 +28,9 @@ public class TimerTimeIsUp : MonoBehaviour
                 GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
                 MainCamera.GetComponent<MultipleTargetCamera>().enabled = true;
             }
-            if (countDownStartValue == 55)
+            if (countDownStartValue == 10)
             {
-              //  FindObjectOfType<GameManager>().SpawnPortal();
+           //     Portal.GetComponent<Portal>().
 
             }
 

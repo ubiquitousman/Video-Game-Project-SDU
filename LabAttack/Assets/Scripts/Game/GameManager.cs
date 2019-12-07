@@ -172,12 +172,10 @@ public class GameManager : MonoBehaviour
     public void TimeUp ()
     {
         
-        
-        
-        
+       
         /*
         explosionSound.Play();
-        if (P2Life == P1Life)
+        
         {
             suddenDeath = true;
         }

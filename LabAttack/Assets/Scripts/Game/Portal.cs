@@ -59,35 +59,23 @@ public class Portal : MonoBehaviour
 
       }
       
-      
-      
-      
-     * In player scripts:
-
-    // in OnTriggerEnter2D()
-     if (other.tag == "Portal")
-     {
-        findGameManager = FindObjectOfType<GameManager>();
-        findGameManager.TeleportP1   /    findGameManager.TeleportP2
-
-        Destroy(other.gameObject);
-        portalSound.Play();
-     }
-
-     
      
      */
 
      void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player1")
+        if (fullyCharged)
         {
-            SceneManager.LoadScene("P1Won");
+            if (other.tag == "Player1")
+            {
+                SceneManager.LoadScene("P1Won");
+            }
+            if (other.tag == "Player2")
+            {
+                SceneManager.LoadScene("P2Won");
+            }
         }
-        if (other.tag == "Player2")
-        {
-            SceneManager.LoadScene("P2Won");
-        }
+       
 
 
     }

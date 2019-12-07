@@ -38,7 +38,7 @@ public class LaserBeam : MonoBehaviour
 
        
 
-        if (other.tag == "Health" || other.tag == "Ammo" || other.tag == "HealthSpawner" || other.tag == "AmmoSpawner" || other.tag == "RandomSpawner" || other.tag == "Monster")
+        if (other.tag == "Health" || other.tag == "Ammo" || other.tag == "HealthSpawner" || other.tag == "AmmoSpawner" || other.tag == "RandomSpawner" || other.tag == "Monster"|| other.tag == "Portal")
         {
             // don't destroy
         }

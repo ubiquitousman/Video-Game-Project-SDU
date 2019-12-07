@@ -8,12 +8,12 @@ public class MainMenu : MonoBehaviour{
     
     public void Versus()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Cutscene");
     }
 
-    public void Tutorial()
+    public void HowToPlay()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void QuitGame()
