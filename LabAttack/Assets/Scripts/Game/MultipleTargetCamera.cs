@@ -23,9 +23,13 @@ public class MultipleTargetCamera : MonoBehaviour
     private Vector3 velocity;
     private Camera cam;
 
+    public Vector3 startPosition;
+
     private void Start()
     {
         cam = GetComponent<Camera>();
+        startPosition = this.transform.position;
+        
     }
 
     private void Awake()

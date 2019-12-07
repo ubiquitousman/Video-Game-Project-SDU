@@ -632,6 +632,7 @@ MonoBehaviour:
   right: 275
   jump: 273
   shoot: 305
+  rb: {fileID: 0}
   groundCheckPoint: {fileID: 45026443}
   groundCheckRadius: 0.2
   whatIsGround:
@@ -2117,6 +2118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39059fa8ca35ea64c936944bb41434b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countDownStartValue: 3
   Precount: {fileID: 0}
   preCountSound: {fileID: 0}
   startBoomSound: {fileID: 0}
@@ -3239,6 +3241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39059fa8ca35ea64c936944bb41434b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countDownStartValue: 3
   Precount: {fileID: 0}
   preCountSound: {fileID: 0}
   startBoomSound: {fileID: 0}
@@ -5103,6 +5106,7 @@ MonoBehaviour:
   right: 100
   jump: 119
   shoot: 9
+  rb: {fileID: 0}
   groundCheckPoint: {fileID: 964840721}
   groundCheckRadius: 0.2
   whatIsGround:
@@ -6502,6 +6506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1225101088955395245}
+  countDown: {fileID: 1966920618}
+  preCount: {fileID: 2100267434}
   pauseSound: {fileID: 1707164100}
   MenuButtonSound: {fileID: 1038899496}
 --- !u!1 &1361433379
@@ -8304,6 +8310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39059fa8ca35ea64c936944bb41434b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countDownStartValue: 3
   Precount: {fileID: 0}
   preCountSound: {fileID: 0}
   startBoomSound: {fileID: 0}
@@ -9357,7 +9364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time Left: 2:00'
+  m_text: 'Time Left: 1:00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 840a675becea72f4c86b99b50c006392, type: 2}
   m_sharedMaterial: {fileID: 21150155983240154, guid: 840a675becea72f4c86b99b50c006392,
@@ -9470,7 +9477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18b32203db0dbc4fbb677d568cf4b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countDownStartValue: 59
   Countdown: {fileID: 1966920620}
+  preCount: {fileID: 2100267434}
 --- !u!1 &2025794321
 GameObject:
   m_ObjectHideFlags: 0
@@ -9540,8 +9549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 961, y: 73}
-  m_SizeDelta: {x: 840.3, y: 210}
+  m_AnchoredPosition: {x: 961, y: -40}
+  m_SizeDelta: {x: 670.9, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100267436
 MonoBehaviour:
@@ -9555,6 +9564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39059fa8ca35ea64c936944bb41434b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countDownStartValue: 3
   Precount: {fileID: 2100267437}
   preCountSound: {fileID: 1839279812}
   startBoomSound: {fileID: 314228363}
@@ -9607,8 +9617,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11278,7 +11288,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225101088955395245}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1225101089139968342}

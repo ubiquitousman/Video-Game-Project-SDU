@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TextController1 : MonoBehaviour
 {
+    
     public P1Controller thePlayer; // Reference for spilleren
-
+    private Vector3 startpos;
     private Vector3 lastPlayerPosition; // Den løbende position for spilleren, før teksten bliver flyttet
     private float distanceToMoveX; // Hvor meget skal teksten flyttes af x-aksen
     private float distanceToMoveY; // Hvor meget skal teksten flyttes af y-aksen
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,8 @@ public class TextController1 : MonoBehaviour
         if(tag == "Player1")
             FindObjectOfType<P1Controller>(); // Vi finder spiller komponenten for at kunne bruge den i vores kode
         lastPlayerPosition = thePlayer.transform.position; // Spillerens position tjekkes ved start
+
+        StartPosition();
     }
 
     // Update is called once per frame
@@ -27,5 +31,15 @@ public class TextController1 : MonoBehaviour
 
         lastPlayerPosition = thePlayer.transform.position; // Spillerens nye position tjekkes
 
+    }
+
+   public void StartPosition()
+    {
+        startpos = this.transform.position;
+    }
+
+   public void GoToStartPosition ()
+    {
+        this.transform.position = startpos;
     }
 }

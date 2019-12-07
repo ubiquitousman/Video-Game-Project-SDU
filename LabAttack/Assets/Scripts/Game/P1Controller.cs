@@ -24,7 +24,7 @@ public class P1Controller : MonoBehaviour
     public KeyCode jump;
     public KeyCode shoot;
 
-    private Rigidbody2D rb; //declares variable to give the player gravity and the ability to interact with physics
+    public Rigidbody2D rb; //declares variable to give the player gravity and the ability to interact with physics
 
     public Transform groundCheckPoint;
     public float groundCheckRadius;
@@ -41,13 +41,15 @@ public class P1Controller : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource ammoSound;
 
+    private Vector3 startpos;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent <Rigidbody2D>(); //when the game starts we want this script to find the rigidbody that is attached to the player
         rb.isKinematic = false;
         anim = GetComponent<Animator>(); //when the game starts we want this script to find the animations stored in Animator
-        
+        StartPosition();
     }
 
     // Update is called once per frame
@@ -160,5 +162,13 @@ public class P1Controller : MonoBehaviour
         }
     }
 
-    
+    public void StartPosition()
+    {
+        startpos = this.transform.position;
+    }
+
+    public void GoToStartPosition()
+    {
+        this.transform.position = startpos;
+    }
 }

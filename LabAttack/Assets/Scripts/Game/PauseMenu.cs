@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false; // is the game paused?
     public GameObject pauseMenuUI; // We can assign the UI for PauseMenu to this script because this is public
+    public GameObject countDown;
+    public GameObject preCount;
 
     public AudioSource pauseSound;
     public AudioSource MenuButtonSound;
@@ -90,7 +92,42 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false); // disable the UI for PauseMenu
         Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
         GameIsPaused = false;  // the game is not paused now
-        SceneManager.LoadScene("VersusLevel"); // load the VersusLevel scene
+                               //   SceneManager.LoadScene("VersusLevel"); // load the VersusLevel scene
+
+        //Player 1
+        GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+        Player1.GetComponent<P1Controller>().GoToStartPosition();
+        Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
+        Player1.GetComponent<P1Controller>().rb.isKinematic = true;
+
+        // Player 2
+        GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+        Player2.GetComponent<P2Controller>().GoToStartPosition();
+        Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
+        Player2.GetComponent<P2Controller>().rb.isKinematic = true;
+
+        // Timer
+        countDown.GetComponent<TimerTimeIsUp>().CancelInvoke();
+        countDown.GetComponent<TimerTimeIsUp>().enabled = false; // the script TimerTimeIsUp gets disabled
+        countDown.GetComponent<TimerTimeIsUp>().countDownStartValue = 59;
+        countDown.GetComponent<TimerTimeIsUp>().Countdown.text = "Time Left: 1:00";
+
+        //Precount
+        Debug.Log("Hallooooo!");
+        preCount.SetActive(true);
+        preCount.GetComponent<PreCount>().CancelInvoke();
+        preCount.GetComponent<PreCount>().countDownStartValue = 3;
+        preCount.GetComponent<PreCount>().countDownTimer();
+
+        // Camera
+        GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
+        if (MainCamera.GetComponent<MultipleTargetCamera>().startPosition != null)
+        {
+            MainCamera.GetComponent<MultipleTargetCamera>().transform.position = MainCamera.GetComponent<MultipleTargetCamera>().startPosition;
+        }
+       
+        MainCamera.GetComponent<MultipleTargetCamera>().enabled = false;
+
     }
 
 

@@ -7,24 +7,22 @@ using TMPro;
 
 public class TimerTimeIsUp : MonoBehaviour
 {
-    int countDownStartValue = 59;
+    public int countDownStartValue = 59;
     public TextMeshProUGUI Countdown;
     string addZero = "";
-   
+    public GameObject preCount;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        countDownTimer();
-    }
 
-    void countDownTimer()
+    
+
+
+    public void countDownTimer()
     {
         if(countDownStartValue > 0)
         {
             if (countDownStartValue == 58)
             {
-                GameObject preCount = GameObject.Find("Precount"); // the script finds the Countdown (the one that shows the time left)
+                
                 preCount.SetActive(false); // the script TimerTimeIsUp gets enabled
                 GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
                 MainCamera.GetComponent<MultipleTargetCamera>().enabled = true;
