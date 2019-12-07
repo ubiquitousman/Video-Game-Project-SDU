@@ -27,9 +27,10 @@ public class TimerTimeIsUp : MonoBehaviour
                 GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
                 MainCamera.GetComponent<MultipleTargetCamera>().enabled = true;
             }
-            if (countDownStartValue == 10)
+            if (countDownStartValue == 55)
             {
-                FindObjectOfType<GameManager>().SpawnPortal();
+              //  FindObjectOfType<GameManager>().SpawnPortal();
+
             }
 
 

@@ -225,33 +225,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    public void SpawnPortal()
-    {
-        point1 = GameObject.Find("PortalPoint1").transform.position;
-        Instantiate(portal, point1, Quaternion.identity);
-        /*
-        int d2 = Random.Range(1, 3);
-        if (d2 == 1)
-        {
-            
-            randomLocation = GameObject.Find("PortalPoint1").transform.position;
-        }
-        else if (d2 == 2)
-        {
-            randomLocation = GameObject.Find("PortalPoint2").transform.position;
-        }
-        else
-        {
-            randomLocation = GameObject.Find("PortalPoint2").transform.position;
-        }
-
-        Instantiate(portal, randomLocation, Quaternion.identity);
-    */
-    }
-
-
-
-
-
 }
