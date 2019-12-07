@@ -15,7 +15,7 @@ public class CutsceneEnd : MonoBehaviour
     {
         yield return new WaitForSeconds(35f);
         Application.backgroundLoadingPriority = ThreadPriority.Low;
-        AsyncOperation operation = SceneManager.LoadSceneAsync("Level");
+        AsyncOperation operation = SceneManager.LoadSceneAsync("VersusLevel");
         while (!operation.isDone)
         {
             yield return null; }
@@ -26,7 +26,7 @@ public class CutsceneEnd : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Level");
+            SceneManager.LoadScene("VersusLevel");
         }
     }
 
