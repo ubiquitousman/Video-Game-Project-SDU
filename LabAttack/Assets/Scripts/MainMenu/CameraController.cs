@@ -28,8 +28,8 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         newPosition = new Vector3(0, 19, -10);
+        Time.timeScale = 1f;
 
-        
     }
 
 

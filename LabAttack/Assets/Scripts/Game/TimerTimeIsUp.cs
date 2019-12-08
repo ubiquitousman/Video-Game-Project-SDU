@@ -34,7 +34,7 @@ public class TimerTimeIsUp : MonoBehaviour
                 Portal.GetComponent<Portal>().SoundChargeUp();
             }
 
-            if (countDownStartValue == 11)
+            if (countDownStartValue < 11)
             {
                 Portal.GetComponent<Portal>().OpeningPortal();
             }

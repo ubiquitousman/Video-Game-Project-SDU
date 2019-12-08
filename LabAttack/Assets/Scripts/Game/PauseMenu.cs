@@ -149,7 +149,7 @@ public class PauseMenu : MonoBehaviour
             MainCamera.GetComponent<MultipleTargetCamera>().transform.position = MainCamera.GetComponent<MultipleTargetCamera>().startPosition;
         }
         
-        MainCamera.GetComponent<MultipleTargetCamera>().fellDown = false;
+        MainCamera.GetComponent<MultipleTargetCamera>().roundOver = false;
         MainCamera.GetComponent<MultipleTargetCamera>().enabled = false;
 
 
@@ -157,6 +157,7 @@ public class PauseMenu : MonoBehaviour
         GameObject Portal = GameObject.Find("Portal"); // the script finds the Portal
         Portal.GetComponent<Portal>().fullyCharged = false;
         Portal.GetComponent<Portal>().closed = false;
+        Portal.GetComponent<Portal>().anim.ResetTrigger("Charging");
 
         // GameManager
         findGameManager = FindObjectOfType<GameManager>();

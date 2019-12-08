@@ -59,9 +59,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main.transform;
-        startPosition = camera.localPosition;
-        initialDuration = duration;
+       camera = Camera.main.transform;
+       startPosition = camera.localPosition;
+       initialDuration = duration;
+
         delayBeforeLoad = 1.5f;
       
     }
@@ -180,8 +181,7 @@ public class GameManager : MonoBehaviour
         fallSound.Play(); //when player 1 falls down, the fallSound will play
 
         p2Win();
-        GameObject MainCamera = GameObject.Find("Main Camera");
-        MainCamera.GetComponent<MultipleTargetCamera>().fellDown = true;
+       
         P1Life = 0;
         P1Hearts(); // execute void P1Hearts()
 
@@ -199,8 +199,7 @@ public class GameManager : MonoBehaviour
         fallSound.Play(); //when player 2 falls down, the fallSound will play
 
         p1Win();
-        GameObject MainCamera = GameObject.Find("Main Camera");
-        MainCamera.GetComponent<MultipleTargetCamera>().fellDown = true;
+        
         P2Life = 0;
         P2Hearts(); // execute void P2Hearts()
 
@@ -246,6 +245,16 @@ public class GameManager : MonoBehaviour
         
         if (PointGiven == false)
         {
+            GameObject MainCamera = GameObject.Find("Main Camera");
+            MainCamera.GetComponent<MultipleTargetCamera>().roundOver = true;
+
+            GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+            GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+
+            Player2.GetComponent<P2Controller>().currentAmmo = 0;
+            Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
+            Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
+
             P1ScoreValue++;
             P1Score.text = ""+P1ScoreValue;
             BigP1Score.text = P1Score.text;
@@ -261,7 +270,16 @@ public class GameManager : MonoBehaviour
         
         if (PointGiven == false)
         {
-            
+            GameObject MainCamera = GameObject.Find("Main Camera");
+            MainCamera.GetComponent<MultipleTargetCamera>().roundOver = true;
+
+            GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+            GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+
+            Player1.GetComponent<P1Controller>().currentAmmo = 0;
+            Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
+            Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
+
             P2ScoreValue++;
             P2Score.text = ""+P2ScoreValue;
             BigP2Score.text = P2Score.text;
@@ -279,17 +297,26 @@ public class GameManager : MonoBehaviour
         Debug.Log("Time");
         explosionSound.Play();
         explosion.SetActive(true);
-        Time.timeScale = 0.5f;
         PointGiven = true;
+
+        GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+        GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+        
+        Player1.GetComponent<P1Controller>().currentAmmo = 0;
+        Player2.GetComponent<P2Controller>().currentAmmo = 0;
+        Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
+        Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
+
+        GameObject Portal = GameObject.Find("Portal"); // the script finds the Portal
+        Portal.GetComponent<Portal>().anim.ResetTrigger("Charging");
+
         P1Life = 0;
         P2Life = 0;
         P1Hearts();
         P2Hearts();
         whoWon.text = "Both Scientists died in the explosion!";
-        GameObject Player1 = GameObject.Find("Player1");
-        Player1.GetComponent<P1Controller>().currentAmmo = 0;
-        GameObject Player2 = GameObject.Find("Player2");
-        Player2.GetComponent<P2Controller>().currentAmmo = 0;
+       
+        
 
         /*
         

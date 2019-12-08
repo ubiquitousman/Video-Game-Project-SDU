@@ -26,38 +26,61 @@ public class LaserBeam : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) //if the laserbeam interacts (collides) with anything else, just make it vanish
     {
-        if(other.tag == "Player1")
-        {
-            FindObjectOfType<GameManager>().HurtP1();
-        }
-
-        if (other.tag == "Player2")
-        {
-            FindObjectOfType<GameManager>().HurtP2();
-        }
 
         //blood
         if (other.gameObject.tag.Equals("Player1"))
         {
-            Instantiate(laserBeamEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (FindObjectOfType<GameManager>().P1Life != 0)
+            {
+                FindObjectOfType<GameManager>().HurtP1();
+                Instantiate(laserBeamEffect, transform.position, transform.rotation);
+            }
+            
+            
         }
 
         if (other.gameObject.tag.Equals("Player2"))
         {
-            Instantiate(laserBeamEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (FindObjectOfType<GameManager>().P2Life != 0)
+            {
+                FindObjectOfType<GameManager>().HurtP2();
+                Instantiate(laserBeamEffect, transform.position, transform.rotation);
+            }
         }
 
-        if (other.tag == "Health" || other.tag == "Ammo" || other.tag == "HealthSpawner" || other.tag == "AmmoSpawner" || other.tag == "RandomSpawner" || other.tag == "Monster" || other.tag == "Portal")
+        if (other.tag == "Health" || other.tag == "Ammo" || other.tag == "HealthSpawner" || other.tag == "AmmoSpawner" || other.tag == "RandomSpawner" || other.tag == "Monster" || other.tag == "Portal" )
         {
+          
             // don't destroy
 
         }
-
-        else
+        else if (other.tag == "Player1")
         {
-            Destroy(gameObject);
+            if (FindObjectOfType<GameManager>().P1Life == 0)
+            {
+
+            }
+            else
+            {
+                Destroy(gameObject);
+
+            }
         }
+
+        else if (other.tag == "Player2")
+        {
+            if (FindObjectOfType<GameManager>().P2Life == 0)
+            {
+
+            }
+            else
+            {
+                Destroy(gameObject);
+
+            }
+        }
+
+        else {Destroy(gameObject); }    
+        
     }
 }

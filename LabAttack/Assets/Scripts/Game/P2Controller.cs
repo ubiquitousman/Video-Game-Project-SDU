@@ -43,6 +43,10 @@ public class P2Controller : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource ammoSound;
     public AudioSource noAmmoSound;
+    public AudioSource monsterattackSound;
+
+    public GameObject HealthEffect;
+
     private Vector3 startpos;
 
     // Start is called before the first frame update
@@ -68,41 +72,52 @@ public class P2Controller : MonoBehaviour
             Attack();
         }
 
-        if (Input.GetKey(left))
-        {
-            rb.velocity = new Vector2(-moveSpeed, rb.velocity.y); //if we press the key that corresponds with KeyCode left, then we want the rigidbody to move to the left
-        }
-        else if (Input.GetKey(right))
-        {
-            rb.velocity = new Vector2(moveSpeed, rb.velocity.y); //if we press the key that corresponds with KeyCode right, then we want the rigidbody to move to the right
-        }
-        else
-        { 
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
 
-        if(Input.GetKeyDown(jump) && isGrounded) //if the button is just pressed (and not held down), then force will be added, so the player jumps into the air if the player is on the ground when pressed
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            jumpSound.Play();
-        }
 
-        if(Input.GetKeyDown(shoot))
-        {
-            anim.SetTrigger("Shoot");
-            if (currentAmmo > 0)
+        
+            if (Input.GetKey(left))
             {
-                P2Ammo();
-                GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
-                laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
-                
-                shootSound.Play();
-                currentAmmo -= 1;
-            }else
-            {
-                noAmmoSound.Play();
+                rb.velocity = new Vector2(-moveSpeed, rb.velocity.y); //if we press the key that corresponds with KeyCode left, then we want the rigidbody to move to the left
             }
-        }
+            else if (Input.GetKey(right))
+            {
+                rb.velocity = new Vector2(moveSpeed, rb.velocity.y); //if we press the key that corresponds with KeyCode right, then we want the rigidbody to move to the right
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+
+            if (Input.GetKeyDown(jump) && isGrounded) //if the button is just pressed (and not held down), then force will be added, so the player jumps into the air if the player is on the ground when pressed
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpSound.Play();
+            }
+
+            if (Input.GetKeyDown(shoot))
+            {
+
+                anim.SetTrigger("Shoot");
+                if (currentAmmo > 0)
+                {
+                    P2Ammo();
+                    GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
+                    laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
+
+                    shootSound.Play();
+                    currentAmmo -= 1;
+                }
+                else
+                {
+                    noAmmoSound.Play();
+                }
+
+
+            }
+        
+           
+
+        
 
         if(rb.velocity.x <0) //if we're moving to the left [...]
         {
@@ -129,6 +144,7 @@ public class P2Controller : MonoBehaviour
         if (other.tag == "Monster")
         {
             playerInRange = true;
+            monsterattackSound.Play();
         }
     }
 
@@ -155,6 +171,7 @@ public class P2Controller : MonoBehaviour
                 findGameManager.HealP2();
 
                 Destroy(other.gameObject);
+                Instantiate(HealthEffect, transform.position, transform.rotation);
                 spawnHealth = true;
             }
         }

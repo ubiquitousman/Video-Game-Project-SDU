@@ -11,7 +11,7 @@ public class Portal : MonoBehaviour
     public AudioSource portalOpeningSound;
     bool soundPlayed = false;
     GameManager findGameManager;
-    private Animator anim;
+    public Animator anim;
 
 
     private void Start()

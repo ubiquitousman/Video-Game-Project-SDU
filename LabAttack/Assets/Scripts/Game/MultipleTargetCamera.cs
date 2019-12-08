@@ -25,7 +25,7 @@ public class MultipleTargetCamera : MonoBehaviour
 
     public Vector3 startPosition;
 
-    public bool fellDown = false;
+    public bool roundOver = false;
 
     private void Start()
     {
@@ -53,33 +53,44 @@ public class MultipleTargetCamera : MonoBehaviour
 
     private void Move()
     {
-        if (fellDown == false)
+        if (roundOver == false)
         {
-            Vector3 centerPoint = GetCenterPoint();
+            
+                Vector3 centerPoint = GetCenterPoint();
 
-            Vector3 newPosition = centerPoint + offset;
+                Vector3 newPosition = centerPoint + offset;
 
-            transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+                transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
         }
         else
         {
-            Vector3 newPosition = startPosition;
+                Vector3 newPosition = startPosition;
+            
         }
+        
         
     }
 
     void Zoom()
     {
-   
-        // Find the required size based on the desired position and smoothly transition to that size.
-        float requiredSize = FindRequiredSize();
+        if (roundOver == false)
+        {
+            // Find the required size based on the desired position and smoothly transition to that size.
+            float requiredSize = FindRequiredSize();
         m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
+
+        }
+        else
+        {
+            float requiredSize = 7.59f;
+            m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
+        }
 
     }
 
     private float FindRequiredSize()
     {
-    
+       
       if (whichIsBigger == "x")
         {
             zoomFactor = 0.15f;
