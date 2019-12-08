@@ -112,22 +112,27 @@ public class PauseMenu : MonoBehaviour
 
         //Player 1
         GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
+        Player1.SetActive(true);
         Player1.GetComponent<P1Controller>().GoToStartPosition();
         Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
         Player1.GetComponent<P1Controller>().rb.isKinematic = true;
         Player1.GetComponent<P1Controller>().P1Ammo();
+        Player1.GetComponent<SpriteRenderer>().enabled = true;
 
         // Player 2
         GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
+        Player2.SetActive(true);
         Player2.GetComponent<P2Controller>().GoToStartPosition();
         Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
         Player2.GetComponent<P2Controller>().rb.isKinematic = true;
         Player2.GetComponent<P2Controller>().P2Ammo();
+        Player2.GetComponent<SpriteRenderer>().enabled = true;
+
         // Timer
         countDown.GetComponent<TimerTimeIsUp>().CancelInvoke();
         countDown.GetComponent<TimerTimeIsUp>().enabled = false; // the script TimerTimeIsUp gets disabled
-        countDown.GetComponent<TimerTimeIsUp>().countDownStartValue = 59;
-        countDown.GetComponent<TimerTimeIsUp>().Countdown.text = "Time Left: 1:00";
+        countDown.GetComponent<TimerTimeIsUp>().countDownStartValue = 89;
+        countDown.GetComponent<TimerTimeIsUp>().Countdown.text = "Time Left: 1:30";
 
         //Precount
         Debug.Log("Hallooooo!");
@@ -151,6 +156,7 @@ public class PauseMenu : MonoBehaviour
         // Portal
         GameObject Portal = GameObject.Find("Portal"); // the script finds the Portal
         Portal.GetComponent<Portal>().fullyCharged = false;
+        Portal.GetComponent<Portal>().closed = false;
 
         // GameManager
         findGameManager = FindObjectOfType<GameManager>();
