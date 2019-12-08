@@ -10,11 +10,18 @@ public class GameManager : MonoBehaviour
     // Score
     public TextMeshProUGUI P1Score;
     public TextMeshProUGUI P2Score;
+    public TextMeshProUGUI BigP1Score;
+    public TextMeshProUGUI BigP2Score;
     public TextMeshProUGUI whoWon;
     public bool PointGiven = false;
     public float P1ScoreValue = 0;
     public float P2ScoreValue = 0;
+    public float delayBeforeLoad = 1.5f;
     public GameObject ScoreScreen;
+    public GameObject ScoreScreenText;
+    public GameObject P1WonVisual;
+    public GameObject P2WonVisual;
+
 
     //Explossion
     public GameObject explosion;
@@ -40,14 +47,6 @@ public class GameManager : MonoBehaviour
     public int P1Life;
     public int P2Life;
 
-    public GameObject p1Wins;
-    public GameObject p2Wins;
-    public GameObject SuddenDeath;
-
-    public bool p1won = false;
-    public bool p2won = false;
-    public bool suddenDeath = false;
-
     public GameObject[] p1hearts;
     public GameObject[] p2hearts;
 
@@ -63,11 +62,23 @@ public class GameManager : MonoBehaviour
         camera = Camera.main.transform;
         startPosition = camera.localPosition;
         initialDuration = duration;
+        delayBeforeLoad = 1.5f;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (PointGiven == true)
+        {
+            delayBeforeLoad = delayBeforeLoad - Time.deltaTime;
+            if (delayBeforeLoad < 0)
+            {
+                ScoreScreen.SetActive(true);
+                ScoreScreenText.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
         if (shouldShake)
         {
             startPosition = camera.localPosition;
@@ -82,6 +93,7 @@ public class GameManager : MonoBehaviour
                 duration = initialDuration;
                 camera.localPosition = startPosition;
             }
+
         }
        
         /*
@@ -167,11 +179,16 @@ public class GameManager : MonoBehaviour
 
         fallSound.Play(); //when player 1 falls down, the fallSound will play
 
+        p2Win();
+        GameObject MainCamera = GameObject.Find("Main Camera");
+        MainCamera.GetComponent<MultipleTargetCamera>().fellDown = true;
         P1Life = 0;
-
         P1Hearts(); // execute void P1Hearts()
 
         hurtSound.Play(); //when player 1 falls down, the hurtSound will also play
+
+        GameObject Player1 = GameObject.Find("Player1");
+        Player1.GetComponent<P1Controller>().currentAmmo = 0;
 
     }
 
@@ -180,43 +197,18 @@ public class GameManager : MonoBehaviour
         shouldShake = true;
 
         fallSound.Play(); //when player 2 falls down, the fallSound will play
-        
-        P2Life = 0;
 
+        p1Win();
+        GameObject MainCamera = GameObject.Find("Main Camera");
+        MainCamera.GetComponent<MultipleTargetCamera>().fellDown = true;
+        P2Life = 0;
         P2Hearts(); // execute void P2Hearts()
 
         hurtSound.Play(); //when player 2 falls down, the hurtSound will also play
-    }
-
-    public void TimeUp ()
-    {
         
-   
-        explosionSound.Play();
-        explosion.SetActive(true);
-        Time.timeScale = 0.5f;
-        PointGiven = true;
-        P1Life = 0;
-        P2Life = 0;
-        P1Hearts();
-        P2Hearts();
-        ScoreScreen.SetActive(true);
-        whoWon.text = "Both Scientists died in the explosion!";
-
-        /*
-        
-
-        else if (P1Life > P2Life)
-        {
-           SceneManager.LoadScene("P1Won");
-        }
-        else if (P2Life > P1Life)
-        {
-            SceneManager.LoadScene("P2Won");
-        }
-    */
+        GameObject Player2 = GameObject.Find("Player2");
+        Player2.GetComponent<P2Controller>().currentAmmo = 0;
     }
-
 
 
     public void P1Hearts()
@@ -251,29 +243,67 @@ public class GameManager : MonoBehaviour
 
     public void p1Win()
     {
+        
         if (PointGiven == false)
         {
             P1ScoreValue++;
             P1Score.text = ""+P1ScoreValue;
+            BigP1Score.text = P1Score.text;
             PointGiven = true;
-            ScoreScreen.SetActive(true);
             whoWon.text = "Player 1 eliminated Player 2 and managed to escape the laboratory before it exploded!";
+            P1WonVisual.SetActive(true);
+            
         }
 
     }
     public void p2Win()
     {
+        
         if (PointGiven == false)
         {
+            
             P2ScoreValue++;
             P2Score.text = ""+P2ScoreValue;
+            BigP2Score.text = P2Score.text;
             PointGiven = true;
-            ScoreScreen.SetActive(true);
             whoWon.text = "Player 2 eliminated Player 1 and managed to escape the laboratory before it exploded!";
+            P2WonVisual.SetActive(true);
+            
         }
 
-       
     }
-    
+
+    public void TimeUp()
+    {
+        delayBeforeLoad = 1.2f;
+        Debug.Log("Time");
+        explosionSound.Play();
+        explosion.SetActive(true);
+        Time.timeScale = 0.5f;
+        PointGiven = true;
+        P1Life = 0;
+        P2Life = 0;
+        P1Hearts();
+        P2Hearts();
+        whoWon.text = "Both Scientists died in the explosion!";
+        GameObject Player1 = GameObject.Find("Player1");
+        Player1.GetComponent<P1Controller>().currentAmmo = 0;
+        GameObject Player2 = GameObject.Find("Player2");
+        Player2.GetComponent<P2Controller>().currentAmmo = 0;
+
+        /*
+        
+
+        else if (P1Life > P2Life)
+        {
+           SceneManager.LoadScene("P1Won");
+        }
+        else if (P2Life > P1Life)
+        {
+            SceneManager.LoadScene("P2Won");
+        }
+    */
+    }
+
 
 }

@@ -25,6 +25,8 @@ public class MultipleTargetCamera : MonoBehaviour
 
     public Vector3 startPosition;
 
+    public bool fellDown = false;
+
     private void Start()
     {
         cam = GetComponent<Camera>();
@@ -51,11 +53,19 @@ public class MultipleTargetCamera : MonoBehaviour
 
     private void Move()
     {
-        Vector3 centerPoint = GetCenterPoint();
+        if (fellDown == false)
+        {
+            Vector3 centerPoint = GetCenterPoint();
 
-        Vector3 newPosition = centerPoint + offset;
+            Vector3 newPosition = centerPoint + offset;
 
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+            transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+        }
+        else
+        {
+            Vector3 newPosition = startPosition;
+        }
+        
     }
 
     void Zoom()

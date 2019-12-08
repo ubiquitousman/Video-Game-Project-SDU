@@ -7,7 +7,7 @@ using TMPro;
 
 public class TimerTimeIsUp : MonoBehaviour
 {
-    public int countDownStartValue = 59;
+    public int countDownStartValue = 89;
     public TextMeshProUGUI Countdown;
     string addZero = "";
     public GameObject preCount;
@@ -21,7 +21,7 @@ public class TimerTimeIsUp : MonoBehaviour
     {
         if(countDownStartValue > 0)
         {
-            if (countDownStartValue == 58)
+            if (countDownStartValue == 88)
             {
                 
                 preCount.SetActive(false); // the script TimerTimeIsUp gets enabled

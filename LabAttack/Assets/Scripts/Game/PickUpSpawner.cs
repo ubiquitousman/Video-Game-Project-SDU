@@ -94,12 +94,12 @@ public class PickUpSpawner : MonoBehaviour
             }
             else if (SpawnType == "RandomSpawner")
             {
-                int d5 = Random.Range(1, 6);
-                if (d5 == 5 || d5 == 6)
+                int d20 = Random.Range(1, 20);
+                if (d20 < 8)
                 {
                     Instantiate(spawnHealth, this.transform.position, Quaternion.identity);
                 }
-                if (d5 < 5)
+                if (d20 > 7)
                 {
                     Instantiate(spawnAmmo, this.transform.position, Quaternion.identity);
                 }
@@ -108,7 +108,7 @@ public class PickUpSpawner : MonoBehaviour
             touchPickup = true;
             spawning = false;
             spawnTimer = 0;
-            randomTime = Random.Range(7, 30);
+            randomTime = Random.Range(7.2f, 25);
 
         }
     }

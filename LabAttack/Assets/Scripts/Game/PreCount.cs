@@ -20,17 +20,6 @@ public class PreCount : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-
-
-        GameObject Player1 = GameObject.Find("Player1"); // the script finds player 1
-        Player1.GetComponent<P1Controller>().enabled = false; // player 1 can't give inputs to the playerController
-
-        GameObject Player2 = GameObject.Find("Player2"); // the script finds player 2
-        Player2.GetComponent<P2Controller>().enabled = false; // player 2 can't give inputs to the playerController
-
-       
-        
 
         countDownTimer();
     }
@@ -40,7 +29,6 @@ public class PreCount : MonoBehaviour
         GameObject countDown = GameObject.Find("Countdown"); // the script finds the Countdown (the one that shows the time left)
         if (countDownStartValue > 0)
         {
-            musicTheme.Stop();
             TimeSpan spanTime = TimeSpan.FromSeconds(countDownStartValue);
             Precount.text = "Round starts in "  + spanTime.Seconds; ;
             preCountSound.Play();

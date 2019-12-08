@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameIsPaused = false; // is the game paused?
     public GameObject pauseMenuUI; // We can assign the UI for PauseMenu to this script because this is public
+    public GameObject pauseMenuUIText;
     public GameObject countDown;
     public GameObject preCount;
 
@@ -20,27 +21,38 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         GameIsPaused = false; // the game is not paused in the beginning of the game
+        findGameManager = GetComponent<GameManager>();
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // if we press the "Escape" key
-        {
-            if (GameIsPaused) // if the games is paused
+        
+       
+            if (Input.GetKeyDown(KeyCode.Escape)) // if we press the "Escape" key
             {
-                Resume(); // resume the game --> execute the void Resume() 
-            } else  // if the game is not paused
+            if (findGameManager.PointGiven == false)
+
             {
-                Pause(); // put the game on pause --> execute the void Pause() 
+                if (GameIsPaused) // if the games is paused
+                {
+                    Resume(); // resume the game --> execute the void Resume() 
+                }
+                else  // if the game is not paused
+                {
+                    Pause(); // put the game on pause --> execute the void Pause() 
+                }
             }
-        }
     }
+        
+        
+}
 
 
     public void Resume ()
     {
         pauseMenuUI.SetActive(false); // disable the UI for PauseMenu
+        pauseMenuUIText.SetActive(false);
         Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
         GameIsPaused = false; // the game is not paused now
 
@@ -58,6 +70,7 @@ public class PauseMenu : MonoBehaviour
     void Pause ()
     {
         pauseMenuUI.SetActive(true); // enable the UI for PauseMenu
+        pauseMenuUIText.SetActive(true);
         Time.timeScale = 0f; // things won't move (0 means 0% movementspeed)
         GameIsPaused = true; // the game is now paused
 
@@ -92,6 +105,7 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         pauseMenuUI.SetActive(false); // disable the UI for PauseMenu
+        pauseMenuUIText.SetActive(false);
         Time.timeScale = 1f; // things moves in normal speed (1 means 100 % movementspeed)
         GameIsPaused = false;  // the game is not paused now
                                //   SceneManager.LoadScene("VersusLevel"); // load the VersusLevel scene
@@ -121,6 +135,7 @@ public class PauseMenu : MonoBehaviour
         preCount.GetComponent<PreCount>().CancelInvoke();
         preCount.GetComponent<PreCount>().countDownStartValue = 3;
         preCount.GetComponent<PreCount>().countDownTimer();
+        preCount.GetComponent<PreCount>().musicTheme.Stop();
 
         // Camera
         GameObject MainCamera = GameObject.Find("Main Camera"); // the script finds the Camera
@@ -128,8 +143,10 @@ public class PauseMenu : MonoBehaviour
         {
             MainCamera.GetComponent<MultipleTargetCamera>().transform.position = MainCamera.GetComponent<MultipleTargetCamera>().startPosition;
         }
-       
+        
+        MainCamera.GetComponent<MultipleTargetCamera>().fellDown = false;
         MainCamera.GetComponent<MultipleTargetCamera>().enabled = false;
+
 
         // Portal
         GameObject Portal = GameObject.Find("Portal"); // the script finds the Portal
@@ -139,6 +156,11 @@ public class PauseMenu : MonoBehaviour
         findGameManager = FindObjectOfType<GameManager>();
         findGameManager.PointGiven = false;
         findGameManager.explosion.SetActive(false);
+        findGameManager.delayBeforeLoad = 1.5f;
+        findGameManager.P1WonVisual.SetActive(false);
+        findGameManager.P2WonVisual.SetActive(false);
+        findGameManager.ScoreScreen.SetActive(false);
+        findGameManager.ScoreScreenText.SetActive(false);
 
 
 

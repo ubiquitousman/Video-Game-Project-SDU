@@ -52,12 +52,13 @@ public class P2Controller : MonoBehaviour
         rb.isKinematic = false;
         anim = GetComponent<Animator>(); //when the game starts we want this script to find the animations stored in Animator
         StartPosition();
-        P2Ammo();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        P2Ammo();
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, whatIsGround); //it will draw a "circle" and check if the ground is within the circle. If it is then it will tell us if isGrounded is true. If not, it's false
 
         timer += Time.deltaTime;
@@ -88,12 +89,13 @@ public class P2Controller : MonoBehaviour
 
         if(Input.GetKeyDown(shoot))
         {
+            anim.SetTrigger("Shoot");
             if (currentAmmo > 0)
             {
                 P2Ammo();
                 GameObject laserClone = (GameObject)Instantiate(laserBeam, shootPoint.position, shootPoint.rotation);
                 laserClone.transform.localScale = -transform.localScale; //if the player is facing left (if x is -1), then x on the local scale of the laser beam is also -1
-                anim.SetTrigger("Shoot");
+                
                 shootSound.Play();
                 currentAmmo -= 1;
             }else
@@ -140,6 +142,7 @@ public class P2Controller : MonoBehaviour
                 ammoSound.Play();
                 Destroy(other.gameObject);
                 spawnAmmo = true;
+                P2Ammo();
             }
         }
 
@@ -174,7 +177,7 @@ public class P2Controller : MonoBehaviour
     {
         this.transform.position = startpos;
         FindObjectOfType<GameManager>().P2Life = 5;
-        FindObjectOfType<GameManager>().P1Hearts();
+        FindObjectOfType<GameManager>().P2Hearts();
         currentAmmo = 3;
     }
 
