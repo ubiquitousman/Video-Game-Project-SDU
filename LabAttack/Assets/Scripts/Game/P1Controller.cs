@@ -43,6 +43,9 @@ public class P1Controller : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource ammoSound;
     public AudioSource noAmmoSound;
+    public AudioSource monsterattackSound;
+    
+    public GameObject HealthEffect;
 
     private Vector3 startpos;
 
@@ -131,7 +134,7 @@ public class P1Controller : MonoBehaviour
         if (other.tag == "Monster")
         {
             playerInRange = true;
-            
+            monsterattackSound.Play();
         }
 
         
@@ -160,6 +163,7 @@ public class P1Controller : MonoBehaviour
                     findGameManager.HealP1();
                 Debug.Log("Health!");
                 Destroy(other.gameObject);
+                //Instantiate(HealthEffect, transform.position, transform.rotation);
                 spawnHealth = true;
             }
         }
