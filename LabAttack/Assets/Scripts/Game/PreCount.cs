@@ -21,7 +21,7 @@ public class PreCount : MonoBehaviour
     void Start()
     {
 
-        countDownTimer();
+      //  countDownTimer();
     }
 
    public void countDownTimer()
