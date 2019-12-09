@@ -15,17 +15,13 @@ public class PreCount : MonoBehaviour
     public AudioSource preCountSound;
     public AudioSource startBoomSound;
     public AudioSource musicTheme;
+    public AudioSource TutorialTheme;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-      //  countDownTimer();
-    }
-
+   
    public void countDownTimer()
     {
+        TutorialTheme.Stop();
         GameObject countDown = GameObject.Find("Countdown"); // the script finds the Countdown (the one that shows the time left)
         if (countDownStartValue > 0)
         {
