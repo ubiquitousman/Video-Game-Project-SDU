@@ -169,7 +169,7 @@ public class P1Controller : MonoBehaviour
                     findGameManager.HealP1();
                 Debug.Log("Health!");
                 Destroy(other.gameObject);
-                Instantiate(HealthEffect, transform.position, transform.rotation);
+              //  Instantiate(HealthEffect, transform.position, transform.rotation);
                 spawnHealth = true;
             }
         }

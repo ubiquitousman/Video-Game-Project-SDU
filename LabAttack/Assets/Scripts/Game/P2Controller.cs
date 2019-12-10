@@ -171,7 +171,7 @@ public class P2Controller : MonoBehaviour
                 findGameManager.HealP2();
 
                 Destroy(other.gameObject);
-                Instantiate(HealthEffect, transform.position, transform.rotation);
+              //  Instantiate(HealthEffect, transform.position, transform.rotation);
                 spawnHealth = true;
             }
         }

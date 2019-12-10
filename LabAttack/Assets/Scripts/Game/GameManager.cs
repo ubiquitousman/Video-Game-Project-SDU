@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
 
         if(P1Life <= 0) 
         {
+            GameObject Player1 = GameObject.Find("Player1");
+            player1.GetComponent<SpriteRenderer>().enabled = false;
             p2Win();
             // SceneManager.LoadScene("P2Won"); // Player 2 won the game
         }
@@ -126,6 +128,8 @@ public class GameManager : MonoBehaviour
         
         if (P2Life <= 0) 
         {
+            GameObject Player2 = GameObject.Find("Player2");
+            player2.GetComponent<SpriteRenderer>().enabled = false;
             p1Win();
             // SceneManager.LoadScene("P1Won"); // Player 1 won the game
         }
