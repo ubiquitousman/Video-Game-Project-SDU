@@ -1,1 +1,3 @@
-### This game is a 2D, local multiplayer platform-shooter. Two players move from platform to platform, armed with laser guns to either eliminate the other or to keep the opponent at bay and escape through a teleporter before the time runs out.
+### Made in Unity. Two players required to play. The executable is located in this repository as well.
+
+#### All credit goes to Alexander Svanholm, Frederik Christensen and Nickolai Petersen.
