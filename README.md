@@ -1,0 +1,1 @@
+### This game is a 2D, local multiplayer platform-shooter. Two players move from platform to platform, armed with laser guns to either eliminate the other or to keep the opponent at bay and escape through a teleporter before the time runs out.
